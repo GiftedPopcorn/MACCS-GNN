@@ -1,0 +1,13 @@
+hyperopt
+numpy
+pandas
+PyYAML
+rdkit
+scikit_learn
+termcolor
+torch
+torch_geometric
+torch_scatter
+tqdm
+yacs
+tesnsorboard
