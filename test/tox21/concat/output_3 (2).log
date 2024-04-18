@@ -1,0 +1,1355 @@
+[2024-03-26 16:31:12](cross_validate.py 291): INFO  GPU mode...
+[2024-03-26 16:31:12](cross_validate.py 332): INFO  DATA:
+  BATCH_SIZE: 64
+  DATASET: tox21
+  DATA_PATH: ./data/tox21/
+  METRIC: auc
+  RATE: null
+  SPLIT_TYPE: random
+  TASK_NAME: null
+  TASK_TYPE: classification
+EVAL_MODE: false
+HYPER: false
+HYPER_COUNT: 1
+HYPER_REMOVE: null
+LOSS:
+  ALPHA: 0.1
+  CL_LOSS: false
+  FL_LOSS: false
+  TEMPERATURE: 0.1
+MODEL:
+  BRICS: true
+  DEPTH: 3
+  DROPOUT: 0.5
+  F_ATT: true
+  HID: 256
+  OUT_DIM: null
+  R: 1
+  SLICES: 2
+NUM_FOLDS: 10
+NUM_ITERS: 30
+OUTPUT_DIR: ./test/tox21/tox21_3
+SEED: 2021
+SHOW_EACH_SCORES: true
+SHOW_FREQ: 5
+TAG: tox21_3
+TRAIN:
+  EARLY_STOP: 50
+  LR_SCHEDULER:
+    FACTOR: 0.7
+    FINAL_LR: 0.0001
+    INIT_LR: 0.0001
+    MAX_LR: 0.01
+    MIN_LR: 1.0e-05
+    PATIENCE: 10
+    TYPE: reduce
+    WARMUP_EPOCHS: 2.0
+  MAX_EPOCHS: 200
+  OPTIMIZER:
+    BASE_LR: 0.0005487872460806267
+    FP_LR: 4.0e-05
+    MOMENTUM: 0.9
+    TYPE: adam
+    WEIGHT_DECAY: 0.0001
+  RESUME: null
+  START_EPOCH: 0
+  TENSORBOARD:
+    ENABLE: true
+
+[2024-03-26 16:31:12](cross_validate.py 50): INFO  Fold 0
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 16:31:12](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 16:31:15](train.py 231): INFO  number of params: 1584926
+[2024-03-26 16:31:15](train.py 265): INFO  Start training
+[2024-03-26 16:31:33](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.064 trn_auc:0.617 lr:0.00055
+[2024-03-26 16:31:33](train.py 287): INFO  Epoch:0 tox21 val_loss:4.174 val_auc:0.631 lr:0.00055
+[2024-03-26 16:31:33](train.py 289): INFO  Epoch:0 tox21 test_loss:4.030 test_auc:0.665 lr:0.00055
+[2024-03-26 16:31:33](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:31:49](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:32:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:32:18](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:32:33](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:32:48](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.667 trn_auc:0.775 lr:0.00055
+[2024-03-26 16:32:48](train.py 287): INFO  Epoch:5 tox21 val_loss:3.556 val_auc:0.790 lr:0.00055
+[2024-03-26 16:32:48](train.py 289): INFO  Epoch:5 tox21 test_loss:3.303 test_auc:0.815 lr:0.00055
+[2024-03-26 16:32:48](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:33:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:33:19](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:33:35](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:33:49](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:34:04](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.172 trn_auc:0.815 lr:0.00055
+[2024-03-26 16:34:04](train.py 287): INFO  Epoch:10 tox21 val_loss:3.325 val_auc:0.814 lr:0.00055
+[2024-03-26 16:34:04](train.py 289): INFO  Epoch:10 tox21 test_loss:3.119 test_auc:0.842 lr:0.00055
+[2024-03-26 16:34:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:34:36](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:35:05](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:35:20](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.841 trn_auc:0.838 lr:0.00055
+[2024-03-26 16:35:20](train.py 287): INFO  Epoch:15 tox21 val_loss:3.263 val_auc:0.827 lr:0.00055
+[2024-03-26 16:35:20](train.py 289): INFO  Epoch:15 tox21 test_loss:2.962 test_auc:0.859 lr:0.00055
+[2024-03-26 16:35:20](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:35:36](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:36:20](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:36:35](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.584 trn_auc:0.851 lr:0.00055
+[2024-03-26 16:36:35](train.py 287): INFO  Epoch:20 tox21 val_loss:3.222 val_auc:0.836 lr:0.00055
+[2024-03-26 16:36:35](train.py 289): INFO  Epoch:20 tox21 test_loss:2.983 test_auc:0.858 lr:0.00055
+[2024-03-26 16:36:35](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:37:35](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:37:50](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.433 trn_auc:0.859 lr:0.00055
+[2024-03-26 16:37:50](train.py 287): INFO  Epoch:25 tox21 val_loss:3.193 val_auc:0.839 lr:0.00055
+[2024-03-26 16:37:50](train.py 289): INFO  Epoch:25 tox21 test_loss:2.914 test_auc:0.864 lr:0.00055
+[2024-03-26 16:37:51](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:39:06](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.267 trn_auc:0.869 lr:0.00055
+[2024-03-26 16:39:06](train.py 287): INFO  Epoch:30 tox21 val_loss:3.180 val_auc:0.840 lr:0.00055
+[2024-03-26 16:39:06](train.py 289): INFO  Epoch:30 tox21 test_loss:2.895 test_auc:0.866 lr:0.00055
+[2024-03-26 16:39:06](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:39:21](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:39:53](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:40:08](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:40:23](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.058 trn_auc:0.880 lr:0.00055
+[2024-03-26 16:40:23](train.py 287): INFO  Epoch:35 tox21 val_loss:3.249 val_auc:0.836 lr:0.00055
+[2024-03-26 16:40:23](train.py 289): INFO  Epoch:35 tox21 test_loss:3.024 test_auc:0.862 lr:0.00055
+[2024-03-26 16:41:23](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:41:38](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.805 trn_auc:0.889 lr:0.00038
+[2024-03-26 16:41:38](train.py 287): INFO  Epoch:40 tox21 val_loss:3.198 val_auc:0.843 lr:0.00038
+[2024-03-26 16:41:38](train.py 289): INFO  Epoch:40 tox21 test_loss:2.928 test_auc:0.869 lr:0.00038
+[2024-03-26 16:42:53](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.581 trn_auc:0.901 lr:0.00038
+[2024-03-26 16:42:53](train.py 287): INFO  Epoch:45 tox21 val_loss:3.218 val_auc:0.848 lr:0.00038
+[2024-03-26 16:42:53](train.py 289): INFO  Epoch:45 tox21 test_loss:2.847 test_auc:0.877 lr:0.00038
+[2024-03-26 16:43:08](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:43:23](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:44:09](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.507 trn_auc:0.904 lr:0.00038
+[2024-03-26 16:44:09](train.py 287): INFO  Epoch:50 tox21 val_loss:3.166 val_auc:0.852 lr:0.00038
+[2024-03-26 16:44:09](train.py 289): INFO  Epoch:50 tox21 test_loss:2.858 test_auc:0.877 lr:0.00038
+[2024-03-26 16:44:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:45:26](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.267 trn_auc:0.913 lr:0.00027
+[2024-03-26 16:45:26](train.py 287): INFO  Epoch:55 tox21 val_loss:3.392 val_auc:0.849 lr:0.00027
+[2024-03-26 16:45:26](train.py 289): INFO  Epoch:55 tox21 test_loss:3.001 test_auc:0.874 lr:0.00027
+[2024-03-26 16:45:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:46:42](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.103 trn_auc:0.918 lr:0.00027
+[2024-03-26 16:46:42](train.py 287): INFO  Epoch:60 tox21 val_loss:3.311 val_auc:0.851 lr:0.00027
+[2024-03-26 16:46:42](train.py 289): INFO  Epoch:60 tox21 test_loss:3.070 test_auc:0.873 lr:0.00027
+[2024-03-26 16:47:58](train.py 285): INFO  Epoch:65 tox21 trn_loss:3.892 trn_auc:0.926 lr:0.00019
+[2024-03-26 16:47:58](train.py 287): INFO  Epoch:65 tox21 val_loss:3.558 val_auc:0.849 lr:0.00019
+[2024-03-26 16:47:58](train.py 289): INFO  Epoch:65 tox21 test_loss:3.221 test_auc:0.869 lr:0.00019
+[2024-03-26 16:49:14](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.878 trn_auc:0.928 lr:0.00019
+[2024-03-26 16:49:14](train.py 287): INFO  Epoch:70 tox21 val_loss:3.443 val_auc:0.850 lr:0.00019
+[2024-03-26 16:49:14](train.py 289): INFO  Epoch:70 tox21 test_loss:3.150 test_auc:0.870 lr:0.00019
+[2024-03-26 16:50:30](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.690 trn_auc:0.932 lr:0.00013
+[2024-03-26 16:50:30](train.py 287): INFO  Epoch:75 tox21 val_loss:3.532 val_auc:0.853 lr:0.00013
+[2024-03-26 16:50:30](train.py 289): INFO  Epoch:75 tox21 test_loss:3.196 test_auc:0.870 lr:0.00013
+[2024-03-26 16:51:46](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.710 trn_auc:0.933 lr:0.00013
+[2024-03-26 16:51:46](train.py 287): INFO  Epoch:80 tox21 val_loss:3.678 val_auc:0.848 lr:0.00013
+[2024-03-26 16:51:46](train.py 289): INFO  Epoch:80 tox21 test_loss:3.326 test_auc:0.866 lr:0.00013
+[2024-03-26 16:53:03](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.554 trn_auc:0.937 lr:0.00009
+[2024-03-26 16:53:03](train.py 287): INFO  Epoch:85 tox21 val_loss:3.775 val_auc:0.849 lr:0.00009
+[2024-03-26 16:53:03](train.py 289): INFO  Epoch:85 tox21 test_loss:3.501 test_auc:0.864 lr:0.00009
+[2024-03-26 16:54:21](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.479 trn_auc:0.940 lr:0.00009
+[2024-03-26 16:54:21](train.py 287): INFO  Epoch:90 tox21 val_loss:3.855 val_auc:0.849 lr:0.00009
+[2024-03-26 16:54:21](train.py 289): INFO  Epoch:90 tox21 test_loss:3.567 test_auc:0.863 lr:0.00009
+[2024-03-26 16:55:38](train.py 285): INFO  Epoch:95 tox21 trn_loss:3.427 trn_auc:0.941 lr:0.00006
+[2024-03-26 16:55:38](train.py 287): INFO  Epoch:95 tox21 val_loss:4.041 val_auc:0.847 lr:0.00006
+[2024-03-26 16:55:38](train.py 289): INFO  Epoch:95 tox21 test_loss:3.666 test_auc:0.861 lr:0.00006
+[2024-03-26 16:56:55](train.py 285): INFO  Epoch:100 tox21 trn_loss:3.395 trn_auc:0.942 lr:0.00006
+[2024-03-26 16:56:55](train.py 287): INFO  Epoch:100 tox21 val_loss:3.906 val_auc:0.848 lr:0.00006
+[2024-03-26 16:56:55](train.py 289): INFO  Epoch:100 tox21 test_loss:3.558 test_auc:0.862 lr:0.00006
+[2024-03-26 16:58:13](train.py 285): INFO  Epoch:105 tox21 trn_loss:3.407 trn_auc:0.943 lr:0.00006
+[2024-03-26 16:58:13](train.py 287): INFO  Epoch:105 tox21 val_loss:4.128 val_auc:0.846 lr:0.00006
+[2024-03-26 16:58:13](train.py 289): INFO  Epoch:105 tox21 test_loss:3.699 test_auc:0.862 lr:0.00006
+[2024-03-26 16:59:00](train.py 310): INFO  Early stop hitted!
+[2024-03-26 16:59:00](train.py 318): INFO  Training time 0:27:44
+[2024-03-26 16:59:00](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_0/checkpoints/best_ckpt.pth
+[2024-03-26 16:59:01](train.py 210): INFO  Seed 2021 Dataset tox21 ==> The best epoch:77 test_loss:2.940 test_scores:0.878
+[2024-03-26 16:59:01](train.py 323): INFO  Seed 2021 ==> test auc = 0.878
+[2024-03-26 16:59:01](cross_validate.py 50): INFO  Fold 1
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 16:59:01](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 16:59:01](train.py 231): INFO  number of params: 1584926
+[2024-03-26 16:59:01](train.py 265): INFO  Start training
+[2024-03-26 16:59:18](train.py 285): INFO  Epoch:0 tox21 trn_loss:7.980 trn_auc:0.642 lr:0.00055
+[2024-03-26 16:59:18](train.py 287): INFO  Epoch:0 tox21 val_loss:3.984 val_auc:0.716 lr:0.00055
+[2024-03-26 16:59:18](train.py 289): INFO  Epoch:0 tox21 test_loss:3.896 test_auc:0.714 lr:0.00055
+[2024-03-26 16:59:18](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:59:33](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 16:59:48](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:00:03](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:00:19](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:00:34](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.526 trn_auc:0.789 lr:0.00055
+[2024-03-26 17:00:34](train.py 287): INFO  Epoch:5 tox21 val_loss:3.397 val_auc:0.813 lr:0.00055
+[2024-03-26 17:00:34](train.py 289): INFO  Epoch:5 tox21 test_loss:3.498 test_auc:0.787 lr:0.00055
+[2024-03-26 17:00:34](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:01:05](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:01:50](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.200 trn_auc:0.815 lr:0.00055
+[2024-03-26 17:01:50](train.py 287): INFO  Epoch:10 tox21 val_loss:3.284 val_auc:0.816 lr:0.00055
+[2024-03-26 17:01:50](train.py 289): INFO  Epoch:10 tox21 test_loss:3.375 test_auc:0.796 lr:0.00055
+[2024-03-26 17:02:06](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:02:21](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:02:52](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:03:08](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.938 trn_auc:0.829 lr:0.00055
+[2024-03-26 17:03:08](train.py 287): INFO  Epoch:15 tox21 val_loss:3.271 val_auc:0.828 lr:0.00055
+[2024-03-26 17:03:08](train.py 289): INFO  Epoch:15 tox21 test_loss:3.277 test_auc:0.811 lr:0.00055
+[2024-03-26 17:03:08](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:03:38](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:03:53](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:04:23](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.620 trn_auc:0.849 lr:0.00055
+[2024-03-26 17:04:23](train.py 287): INFO  Epoch:20 tox21 val_loss:3.401 val_auc:0.827 lr:0.00055
+[2024-03-26 17:04:23](train.py 289): INFO  Epoch:20 tox21 test_loss:3.509 test_auc:0.813 lr:0.00055
+[2024-03-26 17:05:25](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:05:40](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.431 trn_auc:0.858 lr:0.00055
+[2024-03-26 17:05:40](train.py 287): INFO  Epoch:25 tox21 val_loss:3.233 val_auc:0.836 lr:0.00055
+[2024-03-26 17:05:40](train.py 289): INFO  Epoch:25 tox21 test_loss:3.218 test_auc:0.830 lr:0.00055
+[2024-03-26 17:05:41](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:06:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:06:56](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.168 trn_auc:0.872 lr:0.00038
+[2024-03-26 17:06:56](train.py 287): INFO  Epoch:30 tox21 val_loss:3.299 val_auc:0.834 lr:0.00038
+[2024-03-26 17:06:56](train.py 289): INFO  Epoch:30 tox21 test_loss:3.083 test_auc:0.840 lr:0.00038
+[2024-03-26 17:07:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:07:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:08:13](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.036 trn_auc:0.879 lr:0.00038
+[2024-03-26 17:08:13](train.py 287): INFO  Epoch:35 tox21 val_loss:3.244 val_auc:0.841 lr:0.00038
+[2024-03-26 17:08:13](train.py 289): INFO  Epoch:35 tox21 test_loss:3.048 test_auc:0.844 lr:0.00038
+[2024-03-26 17:09:29](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.884 trn_auc:0.885 lr:0.00027
+[2024-03-26 17:09:29](train.py 287): INFO  Epoch:40 tox21 val_loss:3.361 val_auc:0.836 lr:0.00027
+[2024-03-26 17:09:29](train.py 289): INFO  Epoch:40 tox21 test_loss:3.060 test_auc:0.845 lr:0.00027
+[2024-03-26 17:10:45](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.644 trn_auc:0.897 lr:0.00027
+[2024-03-26 17:10:45](train.py 287): INFO  Epoch:45 tox21 val_loss:3.482 val_auc:0.835 lr:0.00027
+[2024-03-26 17:10:45](train.py 289): INFO  Epoch:45 tox21 test_loss:3.113 test_auc:0.849 lr:0.00027
+[2024-03-26 17:12:02](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.521 trn_auc:0.901 lr:0.00027
+[2024-03-26 17:12:02](train.py 287): INFO  Epoch:50 tox21 val_loss:3.616 val_auc:0.834 lr:0.00027
+[2024-03-26 17:12:02](train.py 289): INFO  Epoch:50 tox21 test_loss:3.156 test_auc:0.849 lr:0.00027
+[2024-03-26 17:13:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:13:18](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.361 trn_auc:0.909 lr:0.00019
+[2024-03-26 17:13:18](train.py 287): INFO  Epoch:55 tox21 val_loss:3.578 val_auc:0.840 lr:0.00019
+[2024-03-26 17:13:18](train.py 289): INFO  Epoch:55 tox21 test_loss:3.172 test_auc:0.851 lr:0.00019
+[2024-03-26 17:14:36](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.260 trn_auc:0.913 lr:0.00019
+[2024-03-26 17:14:36](train.py 287): INFO  Epoch:60 tox21 val_loss:3.678 val_auc:0.840 lr:0.00019
+[2024-03-26 17:14:36](train.py 289): INFO  Epoch:60 tox21 test_loss:3.304 test_auc:0.844 lr:0.00019
+[2024-03-26 17:15:21](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:15:51](train.py 285): INFO  Epoch:65 tox21 trn_loss:4.163 trn_auc:0.916 lr:0.00013
+[2024-03-26 17:15:51](train.py 287): INFO  Epoch:65 tox21 val_loss:3.748 val_auc:0.841 lr:0.00013
+[2024-03-26 17:15:51](train.py 289): INFO  Epoch:65 tox21 test_loss:3.315 test_auc:0.850 lr:0.00013
+[2024-03-26 17:17:07](train.py 285): INFO  Epoch:70 tox21 trn_loss:4.124 trn_auc:0.919 lr:0.00013
+[2024-03-26 17:17:07](train.py 287): INFO  Epoch:70 tox21 val_loss:3.793 val_auc:0.840 lr:0.00013
+[2024-03-26 17:17:07](train.py 289): INFO  Epoch:70 tox21 test_loss:3.262 test_auc:0.852 lr:0.00013
+[2024-03-26 17:18:23](train.py 285): INFO  Epoch:75 tox21 trn_loss:4.022 trn_auc:0.922 lr:0.00009
+[2024-03-26 17:18:23](train.py 287): INFO  Epoch:75 tox21 val_loss:3.732 val_auc:0.841 lr:0.00009
+[2024-03-26 17:18:23](train.py 289): INFO  Epoch:75 tox21 test_loss:3.270 test_auc:0.855 lr:0.00009
+[2024-03-26 17:19:40](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.959 trn_auc:0.925 lr:0.00009
+[2024-03-26 17:19:40](train.py 287): INFO  Epoch:80 tox21 val_loss:3.758 val_auc:0.841 lr:0.00009
+[2024-03-26 17:19:40](train.py 289): INFO  Epoch:80 tox21 test_loss:3.284 test_auc:0.852 lr:0.00009
+[2024-03-26 17:20:59](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.911 trn_auc:0.927 lr:0.00006
+[2024-03-26 17:20:59](train.py 287): INFO  Epoch:85 tox21 val_loss:3.824 val_auc:0.844 lr:0.00006
+[2024-03-26 17:20:59](train.py 289): INFO  Epoch:85 tox21 test_loss:3.328 test_auc:0.853 lr:0.00006
+[2024-03-26 17:20:59](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:22:16](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.889 trn_auc:0.927 lr:0.00006
+[2024-03-26 17:22:16](train.py 287): INFO  Epoch:90 tox21 val_loss:3.896 val_auc:0.843 lr:0.00006
+[2024-03-26 17:22:16](train.py 289): INFO  Epoch:90 tox21 test_loss:3.379 test_auc:0.854 lr:0.00006
+[2024-03-26 17:23:31](train.py 285): INFO  Epoch:95 tox21 trn_loss:3.806 trn_auc:0.930 lr:0.00005
+[2024-03-26 17:23:31](train.py 287): INFO  Epoch:95 tox21 val_loss:3.935 val_auc:0.843 lr:0.00005
+[2024-03-26 17:23:31](train.py 289): INFO  Epoch:95 tox21 test_loss:3.581 test_auc:0.847 lr:0.00005
+[2024-03-26 17:24:47](train.py 285): INFO  Epoch:100 tox21 trn_loss:3.805 trn_auc:0.930 lr:0.00005
+[2024-03-26 17:24:47](train.py 287): INFO  Epoch:100 tox21 val_loss:3.926 val_auc:0.843 lr:0.00005
+[2024-03-26 17:24:47](train.py 289): INFO  Epoch:100 tox21 test_loss:3.465 test_auc:0.853 lr:0.00005
+[2024-03-26 17:26:02](train.py 285): INFO  Epoch:105 tox21 trn_loss:3.765 trn_auc:0.932 lr:0.00005
+[2024-03-26 17:26:02](train.py 287): INFO  Epoch:105 tox21 val_loss:3.959 val_auc:0.844 lr:0.00005
+[2024-03-26 17:26:02](train.py 289): INFO  Epoch:105 tox21 test_loss:3.536 test_auc:0.853 lr:0.00005
+[2024-03-26 17:27:19](train.py 285): INFO  Epoch:110 tox21 trn_loss:3.714 trn_auc:0.930 lr:0.00003
+[2024-03-26 17:27:19](train.py 287): INFO  Epoch:110 tox21 val_loss:3.959 val_auc:0.843 lr:0.00003
+[2024-03-26 17:27:19](train.py 289): INFO  Epoch:110 tox21 test_loss:3.482 test_auc:0.853 lr:0.00003
+[2024-03-26 17:28:34](train.py 285): INFO  Epoch:115 tox21 trn_loss:3.629 trn_auc:0.935 lr:0.00003
+[2024-03-26 17:28:34](train.py 287): INFO  Epoch:115 tox21 val_loss:4.087 val_auc:0.841 lr:0.00003
+[2024-03-26 17:28:34](train.py 289): INFO  Epoch:115 tox21 test_loss:3.630 test_auc:0.851 lr:0.00003
+[2024-03-26 17:29:50](train.py 285): INFO  Epoch:120 tox21 trn_loss:3.655 trn_auc:0.934 lr:0.00002
+[2024-03-26 17:29:50](train.py 287): INFO  Epoch:120 tox21 val_loss:4.063 val_auc:0.841 lr:0.00002
+[2024-03-26 17:29:50](train.py 289): INFO  Epoch:120 tox21 test_loss:3.534 test_auc:0.852 lr:0.00002
+[2024-03-26 17:31:05](train.py 285): INFO  Epoch:125 tox21 trn_loss:3.630 trn_auc:0.936 lr:0.00002
+[2024-03-26 17:31:05](train.py 287): INFO  Epoch:125 tox21 val_loss:4.078 val_auc:0.842 lr:0.00002
+[2024-03-26 17:31:05](train.py 289): INFO  Epoch:125 tox21 test_loss:3.603 test_auc:0.852 lr:0.00002
+[2024-03-26 17:32:20](train.py 285): INFO  Epoch:130 tox21 trn_loss:3.694 trn_auc:0.934 lr:0.00002
+[2024-03-26 17:32:20](train.py 287): INFO  Epoch:130 tox21 val_loss:4.067 val_auc:0.842 lr:0.00002
+[2024-03-26 17:32:20](train.py 289): INFO  Epoch:130 tox21 test_loss:3.563 test_auc:0.852 lr:0.00002
+[2024-03-26 17:33:37](train.py 285): INFO  Epoch:135 tox21 trn_loss:3.631 trn_auc:0.935 lr:0.00002
+[2024-03-26 17:33:37](train.py 287): INFO  Epoch:135 tox21 val_loss:4.093 val_auc:0.842 lr:0.00002
+[2024-03-26 17:33:37](train.py 289): INFO  Epoch:135 tox21 test_loss:3.561 test_auc:0.853 lr:0.00002
+[2024-03-26 17:33:51](train.py 310): INFO  Early stop hitted!
+[2024-03-26 17:33:51](train.py 318): INFO  Training time 0:34:50
+[2024-03-26 17:33:51](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_1/checkpoints/best_ckpt.pth
+[2024-03-26 17:33:53](train.py 210): INFO  Seed 2022 Dataset tox21 ==> The best epoch:85 test_loss:3.328 test_scores:0.853
+[2024-03-26 17:33:53](train.py 323): INFO  Seed 2022 ==> test auc = 0.853
+[2024-03-26 17:33:53](cross_validate.py 50): INFO  Fold 2
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 17:33:53](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 17:33:53](train.py 231): INFO  number of params: 1584926
+[2024-03-26 17:33:53](train.py 265): INFO  Start training
+[2024-03-26 17:34:09](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.052 trn_auc:0.632 lr:0.00055
+[2024-03-26 17:34:09](train.py 287): INFO  Epoch:0 tox21 val_loss:4.070 val_auc:0.686 lr:0.00055
+[2024-03-26 17:34:09](train.py 289): INFO  Epoch:0 tox21 test_loss:4.138 test_auc:0.696 lr:0.00055
+[2024-03-26 17:34:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:34:25](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:34:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:34:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:35:26](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.600 trn_auc:0.784 lr:0.00055
+[2024-03-26 17:35:26](train.py 287): INFO  Epoch:5 tox21 val_loss:3.356 val_auc:0.802 lr:0.00055
+[2024-03-26 17:35:26](train.py 289): INFO  Epoch:5 tox21 test_loss:3.515 test_auc:0.803 lr:0.00055
+[2024-03-26 17:35:26](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:35:41](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:35:57](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:36:27](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:36:43](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.119 trn_auc:0.821 lr:0.00055
+[2024-03-26 17:36:43](train.py 287): INFO  Epoch:10 tox21 val_loss:3.317 val_auc:0.823 lr:0.00055
+[2024-03-26 17:36:43](train.py 289): INFO  Epoch:10 tox21 test_loss:3.384 test_auc:0.839 lr:0.00055
+[2024-03-26 17:37:13](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:37:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:37:44](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:37:59](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.862 trn_auc:0.838 lr:0.00055
+[2024-03-26 17:37:59](train.py 287): INFO  Epoch:15 tox21 val_loss:3.135 val_auc:0.831 lr:0.00055
+[2024-03-26 17:37:59](train.py 289): INFO  Epoch:15 tox21 test_loss:3.073 test_auc:0.845 lr:0.00055
+[2024-03-26 17:38:14](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:39:15](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.592 trn_auc:0.850 lr:0.00055
+[2024-03-26 17:39:15](train.py 287): INFO  Epoch:20 tox21 val_loss:3.032 val_auc:0.839 lr:0.00055
+[2024-03-26 17:39:15](train.py 289): INFO  Epoch:20 tox21 test_loss:3.041 test_auc:0.849 lr:0.00055
+[2024-03-26 17:39:31](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:39:46](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:40:31](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.388 trn_auc:0.862 lr:0.00055
+[2024-03-26 17:40:31](train.py 287): INFO  Epoch:25 tox21 val_loss:3.021 val_auc:0.847 lr:0.00055
+[2024-03-26 17:40:31](train.py 289): INFO  Epoch:25 tox21 test_loss:2.931 test_auc:0.858 lr:0.00055
+[2024-03-26 17:41:02](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:41:47](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.195 trn_auc:0.873 lr:0.00055
+[2024-03-26 17:41:47](train.py 287): INFO  Epoch:30 tox21 val_loss:3.120 val_auc:0.841 lr:0.00055
+[2024-03-26 17:41:47](train.py 289): INFO  Epoch:30 tox21 test_loss:2.999 test_auc:0.854 lr:0.00055
+[2024-03-26 17:42:03](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:43:04](train.py 285): INFO  Epoch:35 tox21 trn_loss:4.995 trn_auc:0.883 lr:0.00055
+[2024-03-26 17:43:04](train.py 287): INFO  Epoch:35 tox21 val_loss:3.026 val_auc:0.852 lr:0.00055
+[2024-03-26 17:43:04](train.py 289): INFO  Epoch:35 tox21 test_loss:2.964 test_auc:0.859 lr:0.00055
+[2024-03-26 17:44:21](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.854 trn_auc:0.889 lr:0.00055
+[2024-03-26 17:44:21](train.py 287): INFO  Epoch:40 tox21 val_loss:3.070 val_auc:0.852 lr:0.00055
+[2024-03-26 17:44:21](train.py 289): INFO  Epoch:40 tox21 test_loss:2.998 test_auc:0.855 lr:0.00055
+[2024-03-26 17:45:35](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.666 trn_auc:0.899 lr:0.00038
+[2024-03-26 17:45:35](train.py 287): INFO  Epoch:45 tox21 val_loss:3.121 val_auc:0.849 lr:0.00038
+[2024-03-26 17:45:35](train.py 289): INFO  Epoch:45 tox21 test_loss:2.830 test_auc:0.865 lr:0.00038
+[2024-03-26 17:46:50](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.386 trn_auc:0.909 lr:0.00038
+[2024-03-26 17:46:50](train.py 287): INFO  Epoch:50 tox21 val_loss:3.155 val_auc:0.849 lr:0.00038
+[2024-03-26 17:46:50](train.py 289): INFO  Epoch:50 tox21 test_loss:2.828 test_auc:0.864 lr:0.00038
+[2024-03-26 17:48:06](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.213 trn_auc:0.916 lr:0.00027
+[2024-03-26 17:48:06](train.py 287): INFO  Epoch:55 tox21 val_loss:3.200 val_auc:0.846 lr:0.00027
+[2024-03-26 17:48:06](train.py 289): INFO  Epoch:55 tox21 test_loss:2.815 test_auc:0.866 lr:0.00027
+[2024-03-26 17:49:23](train.py 285): INFO  Epoch:60 tox21 trn_loss:3.998 trn_auc:0.923 lr:0.00027
+[2024-03-26 17:49:23](train.py 287): INFO  Epoch:60 tox21 val_loss:3.380 val_auc:0.847 lr:0.00027
+[2024-03-26 17:49:23](train.py 289): INFO  Epoch:60 tox21 test_loss:2.861 test_auc:0.867 lr:0.00027
+[2024-03-26 17:50:39](train.py 285): INFO  Epoch:65 tox21 trn_loss:3.862 trn_auc:0.928 lr:0.00027
+[2024-03-26 17:50:39](train.py 287): INFO  Epoch:65 tox21 val_loss:3.496 val_auc:0.843 lr:0.00027
+[2024-03-26 17:50:39](train.py 289): INFO  Epoch:65 tox21 test_loss:2.892 test_auc:0.867 lr:0.00027
+[2024-03-26 17:51:53](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.704 trn_auc:0.933 lr:0.00019
+[2024-03-26 17:51:53](train.py 287): INFO  Epoch:70 tox21 val_loss:3.708 val_auc:0.844 lr:0.00019
+[2024-03-26 17:51:53](train.py 289): INFO  Epoch:70 tox21 test_loss:2.936 test_auc:0.870 lr:0.00019
+[2024-03-26 17:53:08](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.672 trn_auc:0.934 lr:0.00019
+[2024-03-26 17:53:08](train.py 287): INFO  Epoch:75 tox21 val_loss:3.706 val_auc:0.842 lr:0.00019
+[2024-03-26 17:53:08](train.py 289): INFO  Epoch:75 tox21 test_loss:2.905 test_auc:0.868 lr:0.00019
+[2024-03-26 17:54:25](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.557 trn_auc:0.938 lr:0.00013
+[2024-03-26 17:54:25](train.py 287): INFO  Epoch:80 tox21 val_loss:3.878 val_auc:0.841 lr:0.00013
+[2024-03-26 17:54:25](train.py 289): INFO  Epoch:80 tox21 test_loss:3.072 test_auc:0.865 lr:0.00013
+[2024-03-26 17:54:54](train.py 310): INFO  Early stop hitted!
+[2024-03-26 17:54:54](train.py 318): INFO  Training time 0:21:01
+[2024-03-26 17:54:54](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_2/checkpoints/best_ckpt.pth
+[2024-03-26 17:54:56](train.py 210): INFO  Seed 2023 Dataset tox21 ==> The best epoch:57 test_loss:3.001 test_scores:0.858
+[2024-03-26 17:54:56](train.py 323): INFO  Seed 2023 ==> test auc = 0.858
+[2024-03-26 17:54:56](cross_validate.py 50): INFO  Fold 3
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 17:54:56](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 17:54:56](train.py 231): INFO  number of params: 1584926
+[2024-03-26 17:54:56](train.py 265): INFO  Start training
+[2024-03-26 17:55:13](train.py 285): INFO  Epoch:0 tox21 trn_loss:7.914 trn_auc:0.644 lr:0.00055
+[2024-03-26 17:55:13](train.py 287): INFO  Epoch:0 tox21 val_loss:3.838 val_auc:0.723 lr:0.00055
+[2024-03-26 17:55:13](train.py 289): INFO  Epoch:0 tox21 test_loss:3.953 test_auc:0.725 lr:0.00055
+[2024-03-26 17:55:13](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:55:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:55:43](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:55:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:56:12](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:56:27](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.692 trn_auc:0.773 lr:0.00055
+[2024-03-26 17:56:27](train.py 287): INFO  Epoch:5 tox21 val_loss:3.310 val_auc:0.804 lr:0.00055
+[2024-03-26 17:56:27](train.py 289): INFO  Epoch:5 tox21 test_loss:3.464 test_auc:0.807 lr:0.00055
+[2024-03-26 17:56:27](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:56:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:56:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:57:41](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.248 trn_auc:0.813 lr:0.00055
+[2024-03-26 17:57:41](train.py 287): INFO  Epoch:10 tox21 val_loss:3.148 val_auc:0.832 lr:0.00055
+[2024-03-26 17:57:41](train.py 289): INFO  Epoch:10 tox21 test_loss:3.310 test_auc:0.830 lr:0.00055
+[2024-03-26 17:57:41](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:58:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:58:41](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:58:56](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.971 trn_auc:0.828 lr:0.00055
+[2024-03-26 17:58:56](train.py 287): INFO  Epoch:15 tox21 val_loss:3.029 val_auc:0.848 lr:0.00055
+[2024-03-26 17:58:56](train.py 289): INFO  Epoch:15 tox21 test_loss:3.230 test_auc:0.844 lr:0.00055
+[2024-03-26 17:58:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:59:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 17:59:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:00:11](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.757 trn_auc:0.841 lr:0.00055
+[2024-03-26 18:00:11](train.py 287): INFO  Epoch:20 tox21 val_loss:3.002 val_auc:0.855 lr:0.00055
+[2024-03-26 18:00:11](train.py 289): INFO  Epoch:20 tox21 test_loss:3.156 test_auc:0.849 lr:0.00055
+[2024-03-26 18:00:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:00:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:00:57](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:01:27](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.461 trn_auc:0.859 lr:0.00055
+[2024-03-26 18:01:27](train.py 287): INFO  Epoch:25 tox21 val_loss:2.911 val_auc:0.860 lr:0.00055
+[2024-03-26 18:01:27](train.py 289): INFO  Epoch:25 tox21 test_loss:3.185 test_auc:0.856 lr:0.00055
+[2024-03-26 18:02:42](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.302 trn_auc:0.867 lr:0.00055
+[2024-03-26 18:02:42](train.py 287): INFO  Epoch:30 tox21 val_loss:2.947 val_auc:0.860 lr:0.00055
+[2024-03-26 18:02:42](train.py 289): INFO  Epoch:30 tox21 test_loss:3.182 test_auc:0.856 lr:0.00055
+[2024-03-26 18:02:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:03:43](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:03:58](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.223 trn_auc:0.872 lr:0.00055
+[2024-03-26 18:03:58](train.py 287): INFO  Epoch:35 tox21 val_loss:2.829 val_auc:0.864 lr:0.00055
+[2024-03-26 18:03:58](train.py 289): INFO  Epoch:35 tox21 test_loss:3.059 test_auc:0.860 lr:0.00055
+[2024-03-26 18:04:13](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:04:43](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:04:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:05:13](train.py 285): INFO  Epoch:40 tox21 trn_loss:5.060 trn_auc:0.879 lr:0.00055
+[2024-03-26 18:05:13](train.py 287): INFO  Epoch:40 tox21 val_loss:2.813 val_auc:0.869 lr:0.00055
+[2024-03-26 18:05:13](train.py 289): INFO  Epoch:40 tox21 test_loss:3.112 test_auc:0.861 lr:0.00055
+[2024-03-26 18:06:29](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.836 trn_auc:0.888 lr:0.00055
+[2024-03-26 18:06:29](train.py 287): INFO  Epoch:45 tox21 val_loss:2.814 val_auc:0.863 lr:0.00055
+[2024-03-26 18:06:29](train.py 289): INFO  Epoch:45 tox21 test_loss:3.312 test_auc:0.852 lr:0.00055
+[2024-03-26 18:07:44](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.602 trn_auc:0.899 lr:0.00038
+[2024-03-26 18:07:44](train.py 287): INFO  Epoch:50 tox21 val_loss:2.873 val_auc:0.863 lr:0.00038
+[2024-03-26 18:07:44](train.py 289): INFO  Epoch:50 tox21 test_loss:3.235 test_auc:0.861 lr:0.00038
+[2024-03-26 18:08:59](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.550 trn_auc:0.901 lr:0.00038
+[2024-03-26 18:08:59](train.py 287): INFO  Epoch:55 tox21 val_loss:2.891 val_auc:0.863 lr:0.00038
+[2024-03-26 18:08:59](train.py 289): INFO  Epoch:55 tox21 test_loss:3.211 test_auc:0.861 lr:0.00038
+[2024-03-26 18:10:15](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.440 trn_auc:0.906 lr:0.00038
+[2024-03-26 18:10:15](train.py 287): INFO  Epoch:60 tox21 val_loss:2.854 val_auc:0.871 lr:0.00038
+[2024-03-26 18:10:15](train.py 289): INFO  Epoch:60 tox21 test_loss:3.231 test_auc:0.861 lr:0.00038
+[2024-03-26 18:11:29](train.py 285): INFO  Epoch:65 tox21 trn_loss:4.188 trn_auc:0.915 lr:0.00027
+[2024-03-26 18:11:29](train.py 287): INFO  Epoch:65 tox21 val_loss:2.978 val_auc:0.862 lr:0.00027
+[2024-03-26 18:11:29](train.py 289): INFO  Epoch:65 tox21 test_loss:3.498 test_auc:0.858 lr:0.00027
+[2024-03-26 18:12:47](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.988 trn_auc:0.923 lr:0.00027
+[2024-03-26 18:12:47](train.py 287): INFO  Epoch:70 tox21 val_loss:2.921 val_auc:0.866 lr:0.00027
+[2024-03-26 18:12:47](train.py 289): INFO  Epoch:70 tox21 test_loss:3.550 test_auc:0.851 lr:0.00027
+[2024-03-26 18:14:04](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.896 trn_auc:0.926 lr:0.00019
+[2024-03-26 18:14:04](train.py 287): INFO  Epoch:75 tox21 val_loss:2.980 val_auc:0.869 lr:0.00019
+[2024-03-26 18:14:04](train.py 289): INFO  Epoch:75 tox21 test_loss:3.559 test_auc:0.856 lr:0.00019
+[2024-03-26 18:15:19](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.734 trn_auc:0.932 lr:0.00019
+[2024-03-26 18:15:19](train.py 287): INFO  Epoch:80 tox21 val_loss:3.109 val_auc:0.867 lr:0.00019
+[2024-03-26 18:15:19](train.py 289): INFO  Epoch:80 tox21 test_loss:3.881 test_auc:0.846 lr:0.00019
+[2024-03-26 18:16:35](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.695 trn_auc:0.933 lr:0.00019
+[2024-03-26 18:16:35](train.py 287): INFO  Epoch:85 tox21 val_loss:3.179 val_auc:0.865 lr:0.00019
+[2024-03-26 18:16:35](train.py 289): INFO  Epoch:85 tox21 test_loss:3.955 test_auc:0.846 lr:0.00019
+[2024-03-26 18:17:53](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.650 trn_auc:0.934 lr:0.00013
+[2024-03-26 18:17:53](train.py 287): INFO  Epoch:90 tox21 val_loss:3.256 val_auc:0.864 lr:0.00013
+[2024-03-26 18:17:53](train.py 289): INFO  Epoch:90 tox21 test_loss:3.963 test_auc:0.848 lr:0.00013
+[2024-03-26 18:17:53](train.py 310): INFO  Early stop hitted!
+[2024-03-26 18:17:53](train.py 318): INFO  Training time 0:22:57
+[2024-03-26 18:17:53](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_3/checkpoints/best_ckpt.pth
+[2024-03-26 18:17:54](train.py 210): INFO  Seed 2024 Dataset tox21 ==> The best epoch:48 test_loss:3.265 test_scores:0.851
+[2024-03-26 18:17:54](train.py 323): INFO  Seed 2024 ==> test auc = 0.851
+[2024-03-26 18:17:54](cross_validate.py 50): INFO  Fold 4
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 18:17:55](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 18:17:55](train.py 231): INFO  number of params: 1584926
+[2024-03-26 18:17:55](train.py 265): INFO  Start training
+[2024-03-26 18:18:11](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.074 trn_auc:0.619 lr:0.00055
+[2024-03-26 18:18:11](train.py 287): INFO  Epoch:0 tox21 val_loss:4.086 val_auc:0.673 lr:0.00055
+[2024-03-26 18:18:11](train.py 289): INFO  Epoch:0 tox21 test_loss:3.986 test_auc:0.695 lr:0.00055
+[2024-03-26 18:18:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:18:27](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:18:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:18:57](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:19:12](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:19:27](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.690 trn_auc:0.772 lr:0.00055
+[2024-03-26 18:19:27](train.py 287): INFO  Epoch:5 tox21 val_loss:3.762 val_auc:0.770 lr:0.00055
+[2024-03-26 18:19:27](train.py 289): INFO  Epoch:5 tox21 test_loss:3.201 test_auc:0.814 lr:0.00055
+[2024-03-26 18:19:27](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:19:57](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:20:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:20:43](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.193 trn_auc:0.815 lr:0.00055
+[2024-03-26 18:20:43](train.py 287): INFO  Epoch:10 tox21 val_loss:3.460 val_auc:0.799 lr:0.00055
+[2024-03-26 18:20:43](train.py 289): INFO  Epoch:10 tox21 test_loss:3.047 test_auc:0.845 lr:0.00055
+[2024-03-26 18:20:43](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:20:59](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:21:27](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:21:56](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.875 trn_auc:0.835 lr:0.00055
+[2024-03-26 18:21:56](train.py 287): INFO  Epoch:15 tox21 val_loss:3.386 val_auc:0.812 lr:0.00055
+[2024-03-26 18:21:56](train.py 289): INFO  Epoch:15 tox21 test_loss:2.908 test_auc:0.859 lr:0.00055
+[2024-03-26 18:21:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:22:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:22:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:23:13](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.579 trn_auc:0.852 lr:0.00055
+[2024-03-26 18:23:13](train.py 287): INFO  Epoch:20 tox21 val_loss:3.461 val_auc:0.821 lr:0.00055
+[2024-03-26 18:23:13](train.py 289): INFO  Epoch:20 tox21 test_loss:2.781 test_auc:0.871 lr:0.00055
+[2024-03-26 18:23:13](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:23:59](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:24:29](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.499 trn_auc:0.856 lr:0.00055
+[2024-03-26 18:24:29](train.py 287): INFO  Epoch:25 tox21 val_loss:3.345 val_auc:0.819 lr:0.00055
+[2024-03-26 18:24:29](train.py 289): INFO  Epoch:25 tox21 test_loss:2.837 test_auc:0.865 lr:0.00055
+[2024-03-26 18:24:44](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:25:14](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:25:46](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.184 trn_auc:0.873 lr:0.00055
+[2024-03-26 18:25:46](train.py 287): INFO  Epoch:30 tox21 val_loss:3.436 val_auc:0.826 lr:0.00055
+[2024-03-26 18:25:46](train.py 289): INFO  Epoch:30 tox21 test_loss:2.742 test_auc:0.870 lr:0.00055
+[2024-03-26 18:27:00](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.059 trn_auc:0.880 lr:0.00055
+[2024-03-26 18:27:00](train.py 287): INFO  Epoch:35 tox21 val_loss:3.452 val_auc:0.826 lr:0.00055
+[2024-03-26 18:27:00](train.py 289): INFO  Epoch:35 tox21 test_loss:2.649 test_auc:0.880 lr:0.00055
+[2024-03-26 18:27:46](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:28:16](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.853 trn_auc:0.888 lr:0.00055
+[2024-03-26 18:28:16](train.py 287): INFO  Epoch:40 tox21 val_loss:3.281 val_auc:0.838 lr:0.00055
+[2024-03-26 18:28:16](train.py 289): INFO  Epoch:40 tox21 test_loss:2.653 test_auc:0.882 lr:0.00055
+[2024-03-26 18:28:16](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:28:47](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:29:32](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.750 trn_auc:0.894 lr:0.00055
+[2024-03-26 18:29:32](train.py 287): INFO  Epoch:45 tox21 val_loss:3.403 val_auc:0.826 lr:0.00055
+[2024-03-26 18:29:32](train.py 289): INFO  Epoch:45 tox21 test_loss:2.693 test_auc:0.876 lr:0.00055
+[2024-03-26 18:30:49](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.606 trn_auc:0.900 lr:0.00055
+[2024-03-26 18:30:49](train.py 287): INFO  Epoch:50 tox21 val_loss:3.567 val_auc:0.837 lr:0.00055
+[2024-03-26 18:30:49](train.py 289): INFO  Epoch:50 tox21 test_loss:2.628 test_auc:0.885 lr:0.00055
+[2024-03-26 18:31:48](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:32:03](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.386 trn_auc:0.909 lr:0.00055
+[2024-03-26 18:32:03](train.py 287): INFO  Epoch:55 tox21 val_loss:3.530 val_auc:0.839 lr:0.00055
+[2024-03-26 18:32:03](train.py 289): INFO  Epoch:55 tox21 test_loss:2.802 test_auc:0.879 lr:0.00055
+[2024-03-26 18:33:22](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.307 trn_auc:0.913 lr:0.00038
+[2024-03-26 18:33:22](train.py 287): INFO  Epoch:60 tox21 val_loss:3.689 val_auc:0.838 lr:0.00038
+[2024-03-26 18:33:22](train.py 289): INFO  Epoch:60 tox21 test_loss:2.864 test_auc:0.880 lr:0.00038
+[2024-03-26 18:34:37](train.py 285): INFO  Epoch:65 tox21 trn_loss:4.051 trn_auc:0.921 lr:0.00038
+[2024-03-26 18:34:37](train.py 287): INFO  Epoch:65 tox21 val_loss:3.811 val_auc:0.839 lr:0.00038
+[2024-03-26 18:34:37](train.py 289): INFO  Epoch:65 tox21 test_loss:2.748 test_auc:0.887 lr:0.00038
+[2024-03-26 18:35:54](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.907 trn_auc:0.927 lr:0.00027
+[2024-03-26 18:35:54](train.py 287): INFO  Epoch:70 tox21 val_loss:4.013 val_auc:0.831 lr:0.00027
+[2024-03-26 18:35:54](train.py 289): INFO  Epoch:70 tox21 test_loss:2.883 test_auc:0.886 lr:0.00027
+[2024-03-26 18:37:11](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.739 trn_auc:0.933 lr:0.00027
+[2024-03-26 18:37:11](train.py 287): INFO  Epoch:75 tox21 val_loss:3.902 val_auc:0.831 lr:0.00027
+[2024-03-26 18:37:11](train.py 289): INFO  Epoch:75 tox21 test_loss:2.745 test_auc:0.885 lr:0.00027
+[2024-03-26 18:38:27](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.629 trn_auc:0.936 lr:0.00019
+[2024-03-26 18:38:27](train.py 287): INFO  Epoch:80 tox21 val_loss:4.386 val_auc:0.831 lr:0.00019
+[2024-03-26 18:38:27](train.py 289): INFO  Epoch:80 tox21 test_loss:3.083 test_auc:0.883 lr:0.00019
+[2024-03-26 18:39:42](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.434 trn_auc:0.941 lr:0.00019
+[2024-03-26 18:39:42](train.py 287): INFO  Epoch:85 tox21 val_loss:4.500 val_auc:0.830 lr:0.00019
+[2024-03-26 18:39:42](train.py 289): INFO  Epoch:85 tox21 test_loss:3.262 test_auc:0.883 lr:0.00019
+[2024-03-26 18:40:57](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.505 trn_auc:0.940 lr:0.00013
+[2024-03-26 18:40:57](train.py 287): INFO  Epoch:90 tox21 val_loss:4.719 val_auc:0.829 lr:0.00013
+[2024-03-26 18:40:57](train.py 289): INFO  Epoch:90 tox21 test_loss:3.123 test_auc:0.884 lr:0.00013
+[2024-03-26 18:42:15](train.py 285): INFO  Epoch:95 tox21 trn_loss:3.256 trn_auc:0.947 lr:0.00013
+[2024-03-26 18:42:15](train.py 287): INFO  Epoch:95 tox21 val_loss:4.687 val_auc:0.831 lr:0.00013
+[2024-03-26 18:42:15](train.py 289): INFO  Epoch:95 tox21 test_loss:3.233 test_auc:0.885 lr:0.00013
+[2024-03-26 18:43:30](train.py 285): INFO  Epoch:100 tox21 trn_loss:3.222 trn_auc:0.947 lr:0.00013
+[2024-03-26 18:43:30](train.py 287): INFO  Epoch:100 tox21 val_loss:4.727 val_auc:0.831 lr:0.00013
+[2024-03-26 18:43:30](train.py 289): INFO  Epoch:100 tox21 test_loss:3.198 test_auc:0.884 lr:0.00013
+[2024-03-26 18:44:46](train.py 285): INFO  Epoch:105 tox21 trn_loss:3.122 trn_auc:0.950 lr:0.00009
+[2024-03-26 18:44:46](train.py 287): INFO  Epoch:105 tox21 val_loss:5.180 val_auc:0.829 lr:0.00009
+[2024-03-26 18:44:46](train.py 289): INFO  Epoch:105 tox21 test_loss:3.577 test_auc:0.880 lr:0.00009
+[2024-03-26 18:44:46](train.py 310): INFO  Early stop hitted!
+[2024-03-26 18:44:46](train.py 318): INFO  Training time 0:26:51
+[2024-03-26 18:44:46](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_4/checkpoints/best_ckpt.pth
+[2024-03-26 18:44:47](train.py 210): INFO  Seed 2025 Dataset tox21 ==> The best epoch:54 test_loss:2.628 test_scores:0.884
+[2024-03-26 18:44:47](train.py 323): INFO  Seed 2025 ==> test auc = 0.884
+[2024-03-26 18:44:47](cross_validate.py 50): INFO  Fold 5
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 18:44:47](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 18:44:47](train.py 231): INFO  number of params: 1584926
+[2024-03-26 18:44:47](train.py 265): INFO  Start training
+[2024-03-26 18:45:04](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.101 trn_auc:0.623 lr:0.00055
+[2024-03-26 18:45:04](train.py 287): INFO  Epoch:0 tox21 val_loss:4.084 val_auc:0.681 lr:0.00055
+[2024-03-26 18:45:04](train.py 289): INFO  Epoch:0 tox21 test_loss:4.086 test_auc:0.670 lr:0.00055
+[2024-03-26 18:45:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:45:19](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:45:34](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:45:50](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:46:06](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:46:20](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.694 trn_auc:0.778 lr:0.00055
+[2024-03-26 18:46:20](train.py 287): INFO  Epoch:5 tox21 val_loss:3.332 val_auc:0.806 lr:0.00055
+[2024-03-26 18:46:20](train.py 289): INFO  Epoch:5 tox21 test_loss:3.329 test_auc:0.804 lr:0.00055
+[2024-03-26 18:46:21](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:46:36](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:46:52](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:47:07](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:47:37](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.268 trn_auc:0.809 lr:0.00055
+[2024-03-26 18:47:37](train.py 287): INFO  Epoch:10 tox21 val_loss:3.143 val_auc:0.830 lr:0.00055
+[2024-03-26 18:47:37](train.py 289): INFO  Epoch:10 tox21 test_loss:3.120 test_auc:0.832 lr:0.00055
+[2024-03-26 18:47:37](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:47:52](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:48:07](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:48:23](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:48:54](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.943 trn_auc:0.830 lr:0.00055
+[2024-03-26 18:48:54](train.py 287): INFO  Epoch:15 tox21 val_loss:3.032 val_auc:0.843 lr:0.00055
+[2024-03-26 18:48:54](train.py 289): INFO  Epoch:15 tox21 test_loss:3.056 test_auc:0.839 lr:0.00055
+[2024-03-26 18:48:54](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:49:10](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:50:11](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.770 trn_auc:0.840 lr:0.00055
+[2024-03-26 18:50:11](train.py 287): INFO  Epoch:20 tox21 val_loss:2.976 val_auc:0.847 lr:0.00055
+[2024-03-26 18:50:11](train.py 289): INFO  Epoch:20 tox21 test_loss:2.986 test_auc:0.850 lr:0.00055
+[2024-03-26 18:50:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:50:26](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:50:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:51:26](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.488 trn_auc:0.856 lr:0.00055
+[2024-03-26 18:51:26](train.py 287): INFO  Epoch:25 tox21 val_loss:2.954 val_auc:0.848 lr:0.00055
+[2024-03-26 18:51:26](train.py 289): INFO  Epoch:25 tox21 test_loss:2.994 test_auc:0.848 lr:0.00055
+[2024-03-26 18:51:41](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:52:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:52:43](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.361 trn_auc:0.864 lr:0.00055
+[2024-03-26 18:52:43](train.py 287): INFO  Epoch:30 tox21 val_loss:2.870 val_auc:0.855 lr:0.00055
+[2024-03-26 18:52:43](train.py 289): INFO  Epoch:30 tox21 test_loss:2.973 test_auc:0.851 lr:0.00055
+[2024-03-26 18:52:43](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:53:59](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.075 trn_auc:0.878 lr:0.00055
+[2024-03-26 18:53:59](train.py 287): INFO  Epoch:35 tox21 val_loss:2.922 val_auc:0.855 lr:0.00055
+[2024-03-26 18:53:59](train.py 289): INFO  Epoch:35 tox21 test_loss:3.076 test_auc:0.844 lr:0.00055
+[2024-03-26 18:55:15](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.921 trn_auc:0.885 lr:0.00055
+[2024-03-26 18:55:15](train.py 287): INFO  Epoch:40 tox21 val_loss:2.913 val_auc:0.858 lr:0.00055
+[2024-03-26 18:55:15](train.py 289): INFO  Epoch:40 tox21 test_loss:3.002 test_auc:0.857 lr:0.00055
+[2024-03-26 18:55:16](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 18:56:32](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.713 trn_auc:0.896 lr:0.00038
+[2024-03-26 18:56:32](train.py 287): INFO  Epoch:45 tox21 val_loss:2.944 val_auc:0.858 lr:0.00038
+[2024-03-26 18:56:32](train.py 289): INFO  Epoch:45 tox21 test_loss:3.093 test_auc:0.853 lr:0.00038
+[2024-03-26 18:57:45](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.542 trn_auc:0.902 lr:0.00038
+[2024-03-26 18:57:45](train.py 287): INFO  Epoch:50 tox21 val_loss:2.991 val_auc:0.857 lr:0.00038
+[2024-03-26 18:57:45](train.py 289): INFO  Epoch:50 tox21 test_loss:3.184 test_auc:0.852 lr:0.00038
+[2024-03-26 18:58:59](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.325 trn_auc:0.910 lr:0.00027
+[2024-03-26 18:58:59](train.py 287): INFO  Epoch:55 tox21 val_loss:3.216 val_auc:0.850 lr:0.00027
+[2024-03-26 18:58:59](train.py 289): INFO  Epoch:55 tox21 test_loss:3.258 test_auc:0.848 lr:0.00027
+[2024-03-26 19:00:15](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.275 trn_auc:0.911 lr:0.00027
+[2024-03-26 19:00:15](train.py 287): INFO  Epoch:60 tox21 val_loss:3.439 val_auc:0.844 lr:0.00027
+[2024-03-26 19:00:15](train.py 289): INFO  Epoch:60 tox21 test_loss:3.244 test_auc:0.854 lr:0.00027
+[2024-03-26 19:01:32](train.py 285): INFO  Epoch:65 tox21 trn_loss:4.113 trn_auc:0.918 lr:0.00019
+[2024-03-26 19:01:32](train.py 287): INFO  Epoch:65 tox21 val_loss:3.286 val_auc:0.851 lr:0.00019
+[2024-03-26 19:01:32](train.py 289): INFO  Epoch:65 tox21 test_loss:3.344 test_auc:0.851 lr:0.00019
+[2024-03-26 19:02:49](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.978 trn_auc:0.924 lr:0.00019
+[2024-03-26 19:02:49](train.py 287): INFO  Epoch:70 tox21 val_loss:3.473 val_auc:0.852 lr:0.00019
+[2024-03-26 19:02:49](train.py 289): INFO  Epoch:70 tox21 test_loss:3.425 test_auc:0.851 lr:0.00019
+[2024-03-26 19:04:05](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.937 trn_auc:0.924 lr:0.00013
+[2024-03-26 19:04:05](train.py 287): INFO  Epoch:75 tox21 val_loss:3.474 val_auc:0.848 lr:0.00013
+[2024-03-26 19:04:05](train.py 289): INFO  Epoch:75 tox21 test_loss:3.449 test_auc:0.847 lr:0.00013
+[2024-03-26 19:05:20](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.821 trn_auc:0.928 lr:0.00013
+[2024-03-26 19:05:20](train.py 287): INFO  Epoch:80 tox21 val_loss:3.615 val_auc:0.850 lr:0.00013
+[2024-03-26 19:05:20](train.py 289): INFO  Epoch:80 tox21 test_loss:3.481 test_auc:0.852 lr:0.00013
+[2024-03-26 19:06:36](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.676 trn_auc:0.932 lr:0.00009
+[2024-03-26 19:06:36](train.py 287): INFO  Epoch:85 tox21 val_loss:3.734 val_auc:0.851 lr:0.00009
+[2024-03-26 19:06:36](train.py 289): INFO  Epoch:85 tox21 test_loss:3.615 test_auc:0.850 lr:0.00009
+[2024-03-26 19:07:52](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.690 trn_auc:0.933 lr:0.00009
+[2024-03-26 19:07:52](train.py 287): INFO  Epoch:90 tox21 val_loss:3.661 val_auc:0.849 lr:0.00009
+[2024-03-26 19:07:52](train.py 289): INFO  Epoch:90 tox21 test_loss:3.607 test_auc:0.846 lr:0.00009
+[2024-03-26 19:08:07](train.py 310): INFO  Early stop hitted!
+[2024-03-26 19:08:07](train.py 318): INFO  Training time 0:23:19
+[2024-03-26 19:08:07](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_5/checkpoints/best_ckpt.pth
+[2024-03-26 19:08:08](train.py 210): INFO  Seed 2026 Dataset tox21 ==> The best epoch:45 test_loss:3.029 test_scores:0.852
+[2024-03-26 19:08:08](train.py 323): INFO  Seed 2026 ==> test auc = 0.852
+[2024-03-26 19:08:08](cross_validate.py 50): INFO  Fold 6
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 19:08:08](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 19:08:08](train.py 231): INFO  number of params: 1584926
+[2024-03-26 19:08:08](train.py 265): INFO  Start training
+[2024-03-26 19:08:25](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.002 trn_auc:0.634 lr:0.00055
+[2024-03-26 19:08:25](train.py 287): INFO  Epoch:0 tox21 val_loss:4.085 val_auc:0.669 lr:0.00055
+[2024-03-26 19:08:25](train.py 289): INFO  Epoch:0 tox21 test_loss:3.890 test_auc:0.729 lr:0.00055
+[2024-03-26 19:08:25](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:08:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:08:55](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:09:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:09:24](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:09:39](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.508 trn_auc:0.790 lr:0.00055
+[2024-03-26 19:09:39](train.py 287): INFO  Epoch:5 tox21 val_loss:3.636 val_auc:0.775 lr:0.00055
+[2024-03-26 19:09:39](train.py 289): INFO  Epoch:5 tox21 test_loss:3.536 test_auc:0.795 lr:0.00055
+[2024-03-26 19:09:39](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:10:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:10:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:10:55](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.103 trn_auc:0.821 lr:0.00055
+[2024-03-26 19:10:55](train.py 287): INFO  Epoch:10 tox21 val_loss:3.554 val_auc:0.791 lr:0.00055
+[2024-03-26 19:10:55](train.py 289): INFO  Epoch:10 tox21 test_loss:3.462 test_auc:0.818 lr:0.00055
+[2024-03-26 19:11:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:11:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:11:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:12:13](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.766 trn_auc:0.843 lr:0.00055
+[2024-03-26 19:12:13](train.py 287): INFO  Epoch:15 tox21 val_loss:3.709 val_auc:0.803 lr:0.00055
+[2024-03-26 19:12:13](train.py 289): INFO  Epoch:15 tox21 test_loss:3.608 test_auc:0.824 lr:0.00055
+[2024-03-26 19:12:14](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:12:29](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:13:28](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.514 trn_auc:0.855 lr:0.00055
+[2024-03-26 19:13:28](train.py 287): INFO  Epoch:20 tox21 val_loss:3.597 val_auc:0.802 lr:0.00055
+[2024-03-26 19:13:28](train.py 289): INFO  Epoch:20 tox21 test_loss:3.464 test_auc:0.829 lr:0.00055
+[2024-03-26 19:14:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:14:43](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.279 trn_auc:0.869 lr:0.00055
+[2024-03-26 19:14:43](train.py 287): INFO  Epoch:25 tox21 val_loss:3.516 val_auc:0.807 lr:0.00055
+[2024-03-26 19:14:43](train.py 289): INFO  Epoch:25 tox21 test_loss:3.469 test_auc:0.827 lr:0.00055
+[2024-03-26 19:15:14](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:16:00](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.132 trn_auc:0.875 lr:0.00055
+[2024-03-26 19:16:00](train.py 287): INFO  Epoch:30 tox21 val_loss:3.357 val_auc:0.820 lr:0.00055
+[2024-03-26 19:16:00](train.py 289): INFO  Epoch:30 tox21 test_loss:3.298 test_auc:0.838 lr:0.00055
+[2024-03-26 19:16:00](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:16:15](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:16:29](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:16:59](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:17:14](train.py 285): INFO  Epoch:35 tox21 trn_loss:4.896 trn_auc:0.887 lr:0.00055
+[2024-03-26 19:17:14](train.py 287): INFO  Epoch:35 tox21 val_loss:3.437 val_auc:0.814 lr:0.00055
+[2024-03-26 19:17:14](train.py 289): INFO  Epoch:35 tox21 test_loss:3.360 test_auc:0.833 lr:0.00055
+[2024-03-26 19:17:29](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:18:29](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.817 trn_auc:0.891 lr:0.00055
+[2024-03-26 19:18:29](train.py 287): INFO  Epoch:40 tox21 val_loss:3.625 val_auc:0.825 lr:0.00055
+[2024-03-26 19:18:29](train.py 289): INFO  Epoch:40 tox21 test_loss:3.669 test_auc:0.837 lr:0.00055
+[2024-03-26 19:19:46](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.600 trn_auc:0.901 lr:0.00055
+[2024-03-26 19:19:46](train.py 287): INFO  Epoch:45 tox21 val_loss:3.604 val_auc:0.820 lr:0.00055
+[2024-03-26 19:19:46](train.py 289): INFO  Epoch:45 tox21 test_loss:3.738 test_auc:0.825 lr:0.00055
+[2024-03-26 19:20:01](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:20:30](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:21:01](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.323 trn_auc:0.911 lr:0.00038
+[2024-03-26 19:21:01](train.py 287): INFO  Epoch:50 tox21 val_loss:3.600 val_auc:0.827 lr:0.00038
+[2024-03-26 19:21:01](train.py 289): INFO  Epoch:50 tox21 test_loss:3.870 test_auc:0.824 lr:0.00038
+[2024-03-26 19:21:17](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:22:18](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.186 trn_auc:0.916 lr:0.00038
+[2024-03-26 19:22:18](train.py 287): INFO  Epoch:55 tox21 val_loss:3.732 val_auc:0.825 lr:0.00038
+[2024-03-26 19:22:18](train.py 289): INFO  Epoch:55 tox21 test_loss:3.963 test_auc:0.821 lr:0.00038
+[2024-03-26 19:23:03](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:23:33](train.py 285): INFO  Epoch:60 tox21 trn_loss:3.910 trn_auc:0.926 lr:0.00027
+[2024-03-26 19:23:33](train.py 287): INFO  Epoch:60 tox21 val_loss:3.860 val_auc:0.829 lr:0.00027
+[2024-03-26 19:23:33](train.py 289): INFO  Epoch:60 tox21 test_loss:4.088 test_auc:0.825 lr:0.00027
+[2024-03-26 19:24:50](train.py 285): INFO  Epoch:65 tox21 trn_loss:3.841 trn_auc:0.929 lr:0.00027
+[2024-03-26 19:24:50](train.py 287): INFO  Epoch:65 tox21 val_loss:4.169 val_auc:0.829 lr:0.00027
+[2024-03-26 19:24:50](train.py 289): INFO  Epoch:65 tox21 test_loss:4.340 test_auc:0.825 lr:0.00027
+[2024-03-26 19:26:06](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.617 trn_auc:0.935 lr:0.00019
+[2024-03-26 19:26:06](train.py 287): INFO  Epoch:70 tox21 val_loss:4.183 val_auc:0.832 lr:0.00019
+[2024-03-26 19:26:06](train.py 289): INFO  Epoch:70 tox21 test_loss:4.515 test_auc:0.827 lr:0.00019
+[2024-03-26 19:27:22](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.527 trn_auc:0.939 lr:0.00019
+[2024-03-26 19:27:22](train.py 287): INFO  Epoch:75 tox21 val_loss:4.260 val_auc:0.829 lr:0.00019
+[2024-03-26 19:27:22](train.py 289): INFO  Epoch:75 tox21 test_loss:4.592 test_auc:0.824 lr:0.00019
+[2024-03-26 19:28:36](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.443 trn_auc:0.942 lr:0.00013
+[2024-03-26 19:28:36](train.py 287): INFO  Epoch:80 tox21 val_loss:4.351 val_auc:0.831 lr:0.00013
+[2024-03-26 19:28:36](train.py 289): INFO  Epoch:80 tox21 test_loss:4.819 test_auc:0.823 lr:0.00013
+[2024-03-26 19:29:53](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.389 trn_auc:0.943 lr:0.00013
+[2024-03-26 19:29:53](train.py 287): INFO  Epoch:85 tox21 val_loss:4.619 val_auc:0.829 lr:0.00013
+[2024-03-26 19:29:53](train.py 289): INFO  Epoch:85 tox21 test_loss:5.318 test_auc:0.819 lr:0.00013
+[2024-03-26 19:31:08](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.274 trn_auc:0.946 lr:0.00013
+[2024-03-26 19:31:08](train.py 287): INFO  Epoch:90 tox21 val_loss:4.589 val_auc:0.832 lr:0.00013
+[2024-03-26 19:31:08](train.py 289): INFO  Epoch:90 tox21 test_loss:5.391 test_auc:0.819 lr:0.00013
+[2024-03-26 19:32:24](train.py 285): INFO  Epoch:95 tox21 trn_loss:3.196 trn_auc:0.948 lr:0.00009
+[2024-03-26 19:32:24](train.py 287): INFO  Epoch:95 tox21 val_loss:4.898 val_auc:0.828 lr:0.00009
+[2024-03-26 19:32:24](train.py 289): INFO  Epoch:95 tox21 test_loss:5.354 test_auc:0.821 lr:0.00009
+[2024-03-26 19:33:40](train.py 285): INFO  Epoch:100 tox21 trn_loss:3.140 trn_auc:0.950 lr:0.00009
+[2024-03-26 19:33:40](train.py 287): INFO  Epoch:100 tox21 val_loss:4.885 val_auc:0.829 lr:0.00009
+[2024-03-26 19:33:40](train.py 289): INFO  Epoch:100 tox21 test_loss:5.264 test_auc:0.822 lr:0.00009
+[2024-03-26 19:34:57](train.py 285): INFO  Epoch:105 tox21 trn_loss:3.099 trn_auc:0.951 lr:0.00006
+[2024-03-26 19:34:57](train.py 287): INFO  Epoch:105 tox21 val_loss:5.107 val_auc:0.827 lr:0.00006
+[2024-03-26 19:34:57](train.py 289): INFO  Epoch:105 tox21 test_loss:5.620 test_auc:0.822 lr:0.00006
+[2024-03-26 19:35:58](train.py 310): INFO  Early stop hitted!
+[2024-03-26 19:35:58](train.py 318): INFO  Training time 0:27:49
+[2024-03-26 19:35:58](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_6/checkpoints/best_ckpt.pth
+[2024-03-26 19:35:59](train.py 210): INFO  Seed 2027 Dataset tox21 ==> The best epoch:49 test_loss:3.937 test_scores:0.829
+[2024-03-26 19:35:59](train.py 323): INFO  Seed 2027 ==> test auc = 0.829
+[2024-03-26 19:35:59](cross_validate.py 50): INFO  Fold 7
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 19:35:59](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 19:35:59](train.py 231): INFO  number of params: 1584926
+[2024-03-26 19:35:59](train.py 265): INFO  Start training
+[2024-03-26 19:36:16](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.111 trn_auc:0.611 lr:0.00055
+[2024-03-26 19:36:16](train.py 287): INFO  Epoch:0 tox21 val_loss:4.064 val_auc:0.695 lr:0.00055
+[2024-03-26 19:36:16](train.py 289): INFO  Epoch:0 tox21 test_loss:3.985 test_auc:0.703 lr:0.00055
+[2024-03-26 19:36:16](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:36:32](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:36:48](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:37:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:37:19](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:37:35](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.657 trn_auc:0.776 lr:0.00055
+[2024-03-26 19:37:35](train.py 287): INFO  Epoch:5 tox21 val_loss:3.515 val_auc:0.797 lr:0.00055
+[2024-03-26 19:37:35](train.py 289): INFO  Epoch:5 tox21 test_loss:3.566 test_auc:0.793 lr:0.00055
+[2024-03-26 19:37:50](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:38:20](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:38:49](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.237 trn_auc:0.810 lr:0.00055
+[2024-03-26 19:38:49](train.py 287): INFO  Epoch:10 tox21 val_loss:3.303 val_auc:0.820 lr:0.00055
+[2024-03-26 19:38:49](train.py 289): INFO  Epoch:10 tox21 test_loss:3.442 test_auc:0.813 lr:0.00055
+[2024-03-26 19:38:49](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:39:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:39:33](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:39:49](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:40:04](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.835 trn_auc:0.835 lr:0.00055
+[2024-03-26 19:40:04](train.py 287): INFO  Epoch:15 tox21 val_loss:3.151 val_auc:0.837 lr:0.00055
+[2024-03-26 19:40:04](train.py 289): INFO  Epoch:15 tox21 test_loss:3.346 test_auc:0.824 lr:0.00055
+[2024-03-26 19:40:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:40:34](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:40:49](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:41:04](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:41:19](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.698 trn_auc:0.844 lr:0.00055
+[2024-03-26 19:41:19](train.py 287): INFO  Epoch:20 tox21 val_loss:3.153 val_auc:0.838 lr:0.00055
+[2024-03-26 19:41:19](train.py 289): INFO  Epoch:20 tox21 test_loss:3.385 test_auc:0.829 lr:0.00055
+[2024-03-26 19:41:34](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:41:49](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:42:20](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:42:35](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.481 trn_auc:0.857 lr:0.00055
+[2024-03-26 19:42:35](train.py 287): INFO  Epoch:25 tox21 val_loss:2.994 val_auc:0.847 lr:0.00055
+[2024-03-26 19:42:35](train.py 289): INFO  Epoch:25 tox21 test_loss:3.259 test_auc:0.835 lr:0.00055
+[2024-03-26 19:42:50](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:43:05](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:43:51](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.160 trn_auc:0.872 lr:0.00055
+[2024-03-26 19:43:51](train.py 287): INFO  Epoch:30 tox21 val_loss:2.971 val_auc:0.855 lr:0.00055
+[2024-03-26 19:43:51](train.py 289): INFO  Epoch:30 tox21 test_loss:3.350 test_auc:0.843 lr:0.00055
+[2024-03-26 19:43:51](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:44:52](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:45:08](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.063 trn_auc:0.877 lr:0.00055
+[2024-03-26 19:45:08](train.py 287): INFO  Epoch:35 tox21 val_loss:2.902 val_auc:0.858 lr:0.00055
+[2024-03-26 19:45:08](train.py 289): INFO  Epoch:35 tox21 test_loss:3.237 test_auc:0.847 lr:0.00055
+[2024-03-26 19:45:08](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:46:23](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.983 trn_auc:0.882 lr:0.00055
+[2024-03-26 19:46:23](train.py 287): INFO  Epoch:40 tox21 val_loss:2.944 val_auc:0.859 lr:0.00055
+[2024-03-26 19:46:23](train.py 289): INFO  Epoch:40 tox21 test_loss:3.307 test_auc:0.846 lr:0.00055
+[2024-03-26 19:46:23](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:46:38](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:47:10](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:47:40](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.794 trn_auc:0.891 lr:0.00055
+[2024-03-26 19:47:40](train.py 287): INFO  Epoch:45 tox21 val_loss:2.893 val_auc:0.866 lr:0.00055
+[2024-03-26 19:47:40](train.py 289): INFO  Epoch:45 tox21 test_loss:3.400 test_auc:0.841 lr:0.00055
+[2024-03-26 19:47:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:48:26](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:48:56](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.567 trn_auc:0.900 lr:0.00055
+[2024-03-26 19:48:56](train.py 287): INFO  Epoch:50 tox21 val_loss:2.943 val_auc:0.862 lr:0.00055
+[2024-03-26 19:48:56](train.py 289): INFO  Epoch:50 tox21 test_loss:3.566 test_auc:0.840 lr:0.00055
+[2024-03-26 19:49:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:50:11](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.355 trn_auc:0.910 lr:0.00038
+[2024-03-26 19:50:11](train.py 287): INFO  Epoch:55 tox21 val_loss:2.942 val_auc:0.869 lr:0.00038
+[2024-03-26 19:50:11](train.py 289): INFO  Epoch:55 tox21 test_loss:3.696 test_auc:0.844 lr:0.00038
+[2024-03-26 19:50:57](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:51:27](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.148 trn_auc:0.916 lr:0.00038
+[2024-03-26 19:51:27](train.py 287): INFO  Epoch:60 tox21 val_loss:2.971 val_auc:0.867 lr:0.00038
+[2024-03-26 19:51:27](train.py 289): INFO  Epoch:60 tox21 test_loss:3.849 test_auc:0.845 lr:0.00038
+[2024-03-26 19:51:58](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 19:52:42](train.py 285): INFO  Epoch:65 tox21 trn_loss:3.938 trn_auc:0.925 lr:0.00027
+[2024-03-26 19:52:42](train.py 287): INFO  Epoch:65 tox21 val_loss:3.047 val_auc:0.870 lr:0.00027
+[2024-03-26 19:52:42](train.py 289): INFO  Epoch:65 tox21 test_loss:4.063 test_auc:0.846 lr:0.00027
+[2024-03-26 19:53:59](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.848 trn_auc:0.928 lr:0.00027
+[2024-03-26 19:53:59](train.py 287): INFO  Epoch:70 tox21 val_loss:3.197 val_auc:0.866 lr:0.00027
+[2024-03-26 19:53:59](train.py 289): INFO  Epoch:70 tox21 test_loss:4.447 test_auc:0.843 lr:0.00027
+[2024-03-26 19:55:15](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.760 trn_auc:0.931 lr:0.00019
+[2024-03-26 19:55:15](train.py 287): INFO  Epoch:75 tox21 val_loss:3.174 val_auc:0.865 lr:0.00019
+[2024-03-26 19:55:15](train.py 289): INFO  Epoch:75 tox21 test_loss:4.371 test_auc:0.846 lr:0.00019
+[2024-03-26 19:56:31](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.654 trn_auc:0.934 lr:0.00019
+[2024-03-26 19:56:31](train.py 287): INFO  Epoch:80 tox21 val_loss:3.175 val_auc:0.865 lr:0.00019
+[2024-03-26 19:56:31](train.py 289): INFO  Epoch:80 tox21 test_loss:4.209 test_auc:0.841 lr:0.00019
+[2024-03-26 19:57:47](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.492 trn_auc:0.940 lr:0.00019
+[2024-03-26 19:57:47](train.py 287): INFO  Epoch:85 tox21 val_loss:3.395 val_auc:0.863 lr:0.00019
+[2024-03-26 19:57:47](train.py 289): INFO  Epoch:85 tox21 test_loss:4.784 test_auc:0.838 lr:0.00019
+[2024-03-26 19:59:03](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.387 trn_auc:0.943 lr:0.00013
+[2024-03-26 19:59:03](train.py 287): INFO  Epoch:90 tox21 val_loss:3.451 val_auc:0.860 lr:0.00013
+[2024-03-26 19:59:03](train.py 289): INFO  Epoch:90 tox21 test_loss:4.757 test_auc:0.841 lr:0.00013
+[2024-03-26 20:00:19](train.py 285): INFO  Epoch:95 tox21 trn_loss:3.368 trn_auc:0.943 lr:0.00013
+[2024-03-26 20:00:19](train.py 287): INFO  Epoch:95 tox21 val_loss:3.624 val_auc:0.863 lr:0.00013
+[2024-03-26 20:00:19](train.py 289): INFO  Epoch:95 tox21 test_loss:5.085 test_auc:0.837 lr:0.00013
+[2024-03-26 20:01:35](train.py 285): INFO  Epoch:100 tox21 trn_loss:3.263 trn_auc:0.946 lr:0.00009
+[2024-03-26 20:01:35](train.py 287): INFO  Epoch:100 tox21 val_loss:3.664 val_auc:0.862 lr:0.00009
+[2024-03-26 20:01:35](train.py 289): INFO  Epoch:100 tox21 test_loss:5.209 test_auc:0.839 lr:0.00009
+[2024-03-26 20:02:50](train.py 285): INFO  Epoch:105 tox21 trn_loss:3.244 trn_auc:0.948 lr:0.00009
+[2024-03-26 20:02:50](train.py 287): INFO  Epoch:105 tox21 val_loss:3.761 val_auc:0.859 lr:0.00009
+[2024-03-26 20:02:50](train.py 289): INFO  Epoch:105 tox21 test_loss:5.196 test_auc:0.837 lr:0.00009
+[2024-03-26 20:04:05](train.py 285): INFO  Epoch:110 tox21 trn_loss:3.168 trn_auc:0.950 lr:0.00006
+[2024-03-26 20:04:05](train.py 287): INFO  Epoch:110 tox21 val_loss:3.814 val_auc:0.860 lr:0.00006
+[2024-03-26 20:04:05](train.py 289): INFO  Epoch:110 tox21 test_loss:5.176 test_auc:0.840 lr:0.00006
+[2024-03-26 20:04:50](train.py 310): INFO  Early stop hitted!
+[2024-03-26 20:04:50](train.py 318): INFO  Training time 0:28:51
+[2024-03-26 20:04:50](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_7/checkpoints/best_ckpt.pth
+[2024-03-26 20:04:51](train.py 210): INFO  Seed 2028 Dataset tox21 ==> The best epoch:52 test_loss:3.690 test_scores:0.837
+[2024-03-26 20:04:51](train.py 323): INFO  Seed 2028 ==> test auc = 0.837
+[2024-03-26 20:04:51](cross_validate.py 50): INFO  Fold 8
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 20:04:52](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 20:04:52](train.py 231): INFO  number of params: 1584926
+[2024-03-26 20:04:52](train.py 265): INFO  Start training
+[2024-03-26 20:05:08](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.021 trn_auc:0.618 lr:0.00055
+[2024-03-26 20:05:08](train.py 287): INFO  Epoch:0 tox21 val_loss:3.841 val_auc:0.753 lr:0.00055
+[2024-03-26 20:05:08](train.py 289): INFO  Epoch:0 tox21 test_loss:4.047 test_auc:0.718 lr:0.00055
+[2024-03-26 20:05:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:05:24](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:05:39](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:05:54](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:06:10](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:06:25](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.546 trn_auc:0.789 lr:0.00055
+[2024-03-26 20:06:25](train.py 287): INFO  Epoch:5 tox21 val_loss:3.302 val_auc:0.813 lr:0.00055
+[2024-03-26 20:06:25](train.py 289): INFO  Epoch:5 tox21 test_loss:3.547 test_auc:0.781 lr:0.00055
+[2024-03-26 20:06:25](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:06:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:06:55](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:07:10](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:07:25](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:07:40](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.123 trn_auc:0.818 lr:0.00055
+[2024-03-26 20:07:40](train.py 287): INFO  Epoch:10 tox21 val_loss:3.281 val_auc:0.822 lr:0.00055
+[2024-03-26 20:07:40](train.py 289): INFO  Epoch:10 tox21 test_loss:3.476 test_auc:0.801 lr:0.00055
+[2024-03-26 20:08:10](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:08:25](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:08:56](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.986 trn_auc:0.829 lr:0.00055
+[2024-03-26 20:08:56](train.py 287): INFO  Epoch:15 tox21 val_loss:3.024 val_auc:0.835 lr:0.00055
+[2024-03-26 20:08:56](train.py 289): INFO  Epoch:15 tox21 test_loss:3.276 test_auc:0.817 lr:0.00055
+[2024-03-26 20:09:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:09:26](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:09:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:10:11](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.750 trn_auc:0.842 lr:0.00055
+[2024-03-26 20:10:11](train.py 287): INFO  Epoch:20 tox21 val_loss:2.954 val_auc:0.847 lr:0.00055
+[2024-03-26 20:10:11](train.py 289): INFO  Epoch:20 tox21 test_loss:3.140 test_auc:0.839 lr:0.00055
+[2024-03-26 20:10:11](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:10:41](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:11:27](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.559 trn_auc:0.853 lr:0.00055
+[2024-03-26 20:11:27](train.py 287): INFO  Epoch:25 tox21 val_loss:3.084 val_auc:0.843 lr:0.00055
+[2024-03-26 20:11:27](train.py 289): INFO  Epoch:25 tox21 test_loss:3.270 test_auc:0.831 lr:0.00055
+[2024-03-26 20:11:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:12:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:12:43](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.273 trn_auc:0.867 lr:0.00055
+[2024-03-26 20:12:43](train.py 287): INFO  Epoch:30 tox21 val_loss:2.922 val_auc:0.852 lr:0.00055
+[2024-03-26 20:12:43](train.py 289): INFO  Epoch:30 tox21 test_loss:3.130 test_auc:0.837 lr:0.00055
+[2024-03-26 20:13:12](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:13:58](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.106 trn_auc:0.877 lr:0.00055
+[2024-03-26 20:13:58](train.py 287): INFO  Epoch:35 tox21 val_loss:2.830 val_auc:0.859 lr:0.00055
+[2024-03-26 20:13:58](train.py 289): INFO  Epoch:35 tox21 test_loss:3.065 test_auc:0.843 lr:0.00055
+[2024-03-26 20:13:59](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:15:15](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.855 trn_auc:0.887 lr:0.00055
+[2024-03-26 20:15:15](train.py 287): INFO  Epoch:40 tox21 val_loss:2.860 val_auc:0.857 lr:0.00055
+[2024-03-26 20:15:15](train.py 289): INFO  Epoch:40 tox21 test_loss:3.037 test_auc:0.849 lr:0.00055
+[2024-03-26 20:16:32](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.675 trn_auc:0.896 lr:0.00055
+[2024-03-26 20:16:32](train.py 287): INFO  Epoch:45 tox21 val_loss:2.933 val_auc:0.857 lr:0.00055
+[2024-03-26 20:16:32](train.py 289): INFO  Epoch:45 tox21 test_loss:3.000 test_auc:0.853 lr:0.00055
+[2024-03-26 20:17:48](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.478 trn_auc:0.905 lr:0.00038
+[2024-03-26 20:17:48](train.py 287): INFO  Epoch:50 tox21 val_loss:2.986 val_auc:0.856 lr:0.00038
+[2024-03-26 20:17:48](train.py 289): INFO  Epoch:50 tox21 test_loss:3.218 test_auc:0.842 lr:0.00038
+[2024-03-26 20:19:04](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.329 trn_auc:0.910 lr:0.00038
+[2024-03-26 20:19:04](train.py 287): INFO  Epoch:55 tox21 val_loss:3.050 val_auc:0.852 lr:0.00038
+[2024-03-26 20:19:04](train.py 289): INFO  Epoch:55 tox21 test_loss:3.198 test_auc:0.847 lr:0.00038
+[2024-03-26 20:20:05](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.187 trn_auc:0.915 lr:0.00027
+[2024-03-26 20:20:05](train.py 287): INFO  Epoch:60 tox21 val_loss:3.260 val_auc:0.850 lr:0.00027
+[2024-03-26 20:20:05](train.py 289): INFO  Epoch:60 tox21 test_loss:3.318 test_auc:0.847 lr:0.00027
+[2024-03-26 20:21:05](train.py 285): INFO  Epoch:65 tox21 trn_loss:4.039 trn_auc:0.921 lr:0.00027
+[2024-03-26 20:21:05](train.py 287): INFO  Epoch:65 tox21 val_loss:3.358 val_auc:0.849 lr:0.00027
+[2024-03-26 20:21:05](train.py 289): INFO  Epoch:65 tox21 test_loss:3.429 test_auc:0.848 lr:0.00027
+[2024-03-26 20:22:05](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.950 trn_auc:0.925 lr:0.00019
+[2024-03-26 20:22:05](train.py 287): INFO  Epoch:70 tox21 val_loss:3.131 val_auc:0.855 lr:0.00019
+[2024-03-26 20:22:05](train.py 289): INFO  Epoch:70 tox21 test_loss:3.289 test_auc:0.850 lr:0.00019
+[2024-03-26 20:23:08](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.820 trn_auc:0.929 lr:0.00019
+[2024-03-26 20:23:08](train.py 287): INFO  Epoch:75 tox21 val_loss:3.589 val_auc:0.843 lr:0.00019
+[2024-03-26 20:23:08](train.py 289): INFO  Epoch:75 tox21 test_loss:3.661 test_auc:0.847 lr:0.00019
+[2024-03-26 20:24:12](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.662 trn_auc:0.935 lr:0.00013
+[2024-03-26 20:24:12](train.py 287): INFO  Epoch:80 tox21 val_loss:3.567 val_auc:0.844 lr:0.00013
+[2024-03-26 20:24:12](train.py 289): INFO  Epoch:80 tox21 test_loss:3.664 test_auc:0.844 lr:0.00013
+[2024-03-26 20:25:13](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.671 trn_auc:0.934 lr:0.00013
+[2024-03-26 20:25:13](train.py 287): INFO  Epoch:85 tox21 val_loss:3.552 val_auc:0.844 lr:0.00013
+[2024-03-26 20:25:13](train.py 289): INFO  Epoch:85 tox21 test_loss:3.665 test_auc:0.846 lr:0.00013
+[2024-03-26 20:25:25](train.py 310): INFO  Early stop hitted!
+[2024-03-26 20:25:25](train.py 318): INFO  Training time 0:20:33
+[2024-03-26 20:25:25](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_8/checkpoints/best_ckpt.pth
+[2024-03-26 20:25:26](train.py 210): INFO  Seed 2029 Dataset tox21 ==> The best epoch:51 test_loss:3.270 test_scores:0.842
+[2024-03-26 20:25:26](train.py 323): INFO  Seed 2029 ==> test auc = 0.842
+[2024-03-26 20:25:26](cross_validate.py 50): INFO  Fold 9
+/home/aistudio/external-libraries/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+[2024-03-26 20:25:26](train.py 223): INFO  HiGNN(
+  (combinedfc1): Linear(in_features=512, out_features=256, bias=True)
+  (lin_a): Linear(in_features=46, out_features=256, bias=True)
+  (lin_b): Linear(in_features=10, out_features=256, bias=True)
+  (lin_c): Linear(in_features=167, out_features=256, bias=True)
+  (atom_convs): ModuleList(
+    (0-2): 3 x NTNConv(256, 256, slices=2)
+  )
+  (lin_gate): Linear(in_features=768, out_features=256, bias=True)
+  (feature_att): FeatureAttention(
+    (mlp): Sequential(
+      (0): Linear(in_features=256, out_features=256, bias=False)
+      (1): ReLU(inplace=True)
+      (2): Linear(in_features=256, out_features=256, bias=False)
+    )
+  )
+  (cross_att): GATConv(256, 256, heads=4)
+  (out): Linear(in_features=512, out_features=24, bias=True)
+)
+[2024-03-26 20:25:26](train.py 231): INFO  number of params: 1584926
+[2024-03-26 20:25:26](train.py 265): INFO  Start training
+[2024-03-26 20:25:39](train.py 285): INFO  Epoch:0 tox21 trn_loss:8.128 trn_auc:0.609 lr:0.00055
+[2024-03-26 20:25:39](train.py 287): INFO  Epoch:0 tox21 val_loss:4.131 val_auc:0.682 lr:0.00055
+[2024-03-26 20:25:39](train.py 289): INFO  Epoch:0 tox21 test_loss:4.146 test_auc:0.677 lr:0.00055
+[2024-03-26 20:25:39](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:25:51](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:26:03](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:26:15](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:26:28](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:26:40](train.py 285): INFO  Epoch:5 tox21 trn_loss:6.592 trn_auc:0.786 lr:0.00055
+[2024-03-26 20:26:40](train.py 287): INFO  Epoch:5 tox21 val_loss:3.272 val_auc:0.813 lr:0.00055
+[2024-03-26 20:26:40](train.py 289): INFO  Epoch:5 tox21 test_loss:3.471 test_auc:0.783 lr:0.00055
+[2024-03-26 20:26:40](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:26:53](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:27:05](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:27:17](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:27:30](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:27:42](train.py 285): INFO  Epoch:10 tox21 trn_loss:6.230 trn_auc:0.812 lr:0.00055
+[2024-03-26 20:27:42](train.py 287): INFO  Epoch:10 tox21 val_loss:3.083 val_auc:0.843 lr:0.00055
+[2024-03-26 20:27:42](train.py 289): INFO  Epoch:10 tox21 test_loss:3.327 test_auc:0.804 lr:0.00055
+[2024-03-26 20:27:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:27:54](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:28:06](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:28:30](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:28:42](train.py 285): INFO  Epoch:15 tox21 trn_loss:5.810 trn_auc:0.838 lr:0.00055
+[2024-03-26 20:28:42](train.py 287): INFO  Epoch:15 tox21 val_loss:2.994 val_auc:0.859 lr:0.00055
+[2024-03-26 20:28:42](train.py 289): INFO  Epoch:15 tox21 test_loss:3.065 test_auc:0.831 lr:0.00055
+[2024-03-26 20:28:42](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:29:43](train.py 285): INFO  Epoch:20 tox21 trn_loss:5.631 trn_auc:0.850 lr:0.00055
+[2024-03-26 20:29:43](train.py 287): INFO  Epoch:20 tox21 val_loss:2.916 val_auc:0.859 lr:0.00055
+[2024-03-26 20:29:43](train.py 289): INFO  Epoch:20 tox21 test_loss:2.898 test_auc:0.843 lr:0.00055
+[2024-03-26 20:29:43](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:29:56](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:30:08](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:30:44](train.py 285): INFO  Epoch:25 tox21 trn_loss:5.529 trn_auc:0.859 lr:0.00055
+[2024-03-26 20:30:44](train.py 287): INFO  Epoch:25 tox21 val_loss:2.944 val_auc:0.866 lr:0.00055
+[2024-03-26 20:30:44](train.py 289): INFO  Epoch:25 tox21 test_loss:3.141 test_auc:0.839 lr:0.00055
+[2024-03-26 20:30:45](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:31:09](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:31:21](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:31:33](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:31:45](train.py 285): INFO  Epoch:30 tox21 trn_loss:5.291 trn_auc:0.869 lr:0.00055
+[2024-03-26 20:31:45](train.py 287): INFO  Epoch:30 tox21 val_loss:2.821 val_auc:0.864 lr:0.00055
+[2024-03-26 20:31:45](train.py 289): INFO  Epoch:30 tox21 test_loss:3.021 test_auc:0.833 lr:0.00055
+[2024-03-26 20:32:22](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:32:46](train.py 285): INFO  Epoch:35 tox21 trn_loss:5.057 trn_auc:0.880 lr:0.00055
+[2024-03-26 20:32:46](train.py 287): INFO  Epoch:35 tox21 val_loss:2.778 val_auc:0.872 lr:0.00055
+[2024-03-26 20:32:46](train.py 289): INFO  Epoch:35 tox21 test_loss:2.925 test_auc:0.842 lr:0.00055
+[2024-03-26 20:32:46](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:33:46](train.py 285): INFO  Epoch:40 tox21 trn_loss:4.903 trn_auc:0.886 lr:0.00055
+[2024-03-26 20:33:46](train.py 287): INFO  Epoch:40 tox21 val_loss:2.768 val_auc:0.874 lr:0.00055
+[2024-03-26 20:33:46](train.py 289): INFO  Epoch:40 tox21 test_loss:2.864 test_auc:0.847 lr:0.00055
+[2024-03-26 20:33:46](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:34:47](train.py 285): INFO  Epoch:45 tox21 trn_loss:4.715 trn_auc:0.895 lr:0.00055
+[2024-03-26 20:34:47](train.py 287): INFO  Epoch:45 tox21 val_loss:2.793 val_auc:0.876 lr:0.00055
+[2024-03-26 20:34:47](train.py 289): INFO  Epoch:45 tox21 test_loss:2.867 test_auc:0.847 lr:0.00055
+[2024-03-26 20:34:47](utils.py 78): INFO  best_ckpt saved !!!
+[2024-03-26 20:35:47](train.py 285): INFO  Epoch:50 tox21 trn_loss:4.423 trn_auc:0.907 lr:0.00038
+[2024-03-26 20:35:47](train.py 287): INFO  Epoch:50 tox21 val_loss:3.017 val_auc:0.873 lr:0.00038
+[2024-03-26 20:35:47](train.py 289): INFO  Epoch:50 tox21 test_loss:2.817 test_auc:0.854 lr:0.00038
+[2024-03-26 20:36:48](train.py 285): INFO  Epoch:55 tox21 trn_loss:4.267 trn_auc:0.914 lr:0.00038
+[2024-03-26 20:36:48](train.py 287): INFO  Epoch:55 tox21 val_loss:3.265 val_auc:0.870 lr:0.00038
+[2024-03-26 20:36:48](train.py 289): INFO  Epoch:55 tox21 test_loss:2.992 test_auc:0.852 lr:0.00038
+[2024-03-26 20:37:49](train.py 285): INFO  Epoch:60 tox21 trn_loss:4.111 trn_auc:0.919 lr:0.00027
+[2024-03-26 20:37:49](train.py 287): INFO  Epoch:60 tox21 val_loss:3.263 val_auc:0.869 lr:0.00027
+[2024-03-26 20:37:49](train.py 289): INFO  Epoch:60 tox21 test_loss:2.948 test_auc:0.852 lr:0.00027
+[2024-03-26 20:38:49](train.py 285): INFO  Epoch:65 tox21 trn_loss:3.997 trn_auc:0.924 lr:0.00027
+[2024-03-26 20:38:49](train.py 287): INFO  Epoch:65 tox21 val_loss:3.415 val_auc:0.871 lr:0.00027
+[2024-03-26 20:38:49](train.py 289): INFO  Epoch:65 tox21 test_loss:2.936 test_auc:0.853 lr:0.00027
+[2024-03-26 20:39:51](train.py 285): INFO  Epoch:70 tox21 trn_loss:3.861 trn_auc:0.929 lr:0.00019
+[2024-03-26 20:39:51](train.py 287): INFO  Epoch:70 tox21 val_loss:3.470 val_auc:0.867 lr:0.00019
+[2024-03-26 20:39:51](train.py 289): INFO  Epoch:70 tox21 test_loss:2.931 test_auc:0.852 lr:0.00019
+[2024-03-26 20:40:52](train.py 285): INFO  Epoch:75 tox21 trn_loss:3.691 trn_auc:0.934 lr:0.00019
+[2024-03-26 20:40:52](train.py 287): INFO  Epoch:75 tox21 val_loss:3.749 val_auc:0.866 lr:0.00019
+[2024-03-26 20:40:52](train.py 289): INFO  Epoch:75 tox21 test_loss:3.028 test_auc:0.851 lr:0.00019
+[2024-03-26 20:41:53](train.py 285): INFO  Epoch:80 tox21 trn_loss:3.636 trn_auc:0.937 lr:0.00013
+[2024-03-26 20:41:53](train.py 287): INFO  Epoch:80 tox21 val_loss:4.044 val_auc:0.868 lr:0.00013
+[2024-03-26 20:41:53](train.py 289): INFO  Epoch:80 tox21 test_loss:3.180 test_auc:0.847 lr:0.00013
+[2024-03-26 20:42:54](train.py 285): INFO  Epoch:85 tox21 trn_loss:3.544 trn_auc:0.938 lr:0.00013
+[2024-03-26 20:42:54](train.py 287): INFO  Epoch:85 tox21 val_loss:3.968 val_auc:0.865 lr:0.00013
+[2024-03-26 20:42:54](train.py 289): INFO  Epoch:85 tox21 test_loss:3.188 test_auc:0.851 lr:0.00013
+[2024-03-26 20:43:56](train.py 285): INFO  Epoch:90 tox21 trn_loss:3.528 trn_auc:0.939 lr:0.00013
+[2024-03-26 20:43:56](train.py 287): INFO  Epoch:90 tox21 val_loss:4.038 val_auc:0.867 lr:0.00013
+[2024-03-26 20:43:56](train.py 289): INFO  Epoch:90 tox21 test_loss:3.120 test_auc:0.854 lr:0.00013
+[2024-03-26 20:44:56](train.py 285): INFO  Epoch:95 tox21 trn_loss:3.414 trn_auc:0.943 lr:0.00009
+[2024-03-26 20:44:56](train.py 287): INFO  Epoch:95 tox21 val_loss:4.312 val_auc:0.866 lr:0.00009
+[2024-03-26 20:44:56](train.py 289): INFO  Epoch:95 tox21 test_loss:3.232 test_auc:0.850 lr:0.00009
+[2024-03-26 20:45:09](train.py 310): INFO  Early stop hitted!
+[2024-03-26 20:45:09](train.py 318): INFO  Training time 0:19:42
+[2024-03-26 20:45:09](utils.py 84): INFO  Ckpt loading: ./test/tox21/tox21_3/fold_9/checkpoints/best_ckpt.pth
+[2024-03-26 20:45:10](train.py 210): INFO  Seed 2030 Dataset tox21 ==> The best epoch:47 test_loss:2.990 test_scores:0.843
+[2024-03-26 20:45:10](train.py 323): INFO  Seed 2030 ==> test auc = 0.843
+[2024-03-26 20:45:10](cross_validate.py 59): INFO  10-fold cross validation
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2021 ==> test auc = 0.878
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-AR auc = 0.866
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-AR-LBD auc = 0.948
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-AhR auc = 0.924
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-Aromatase auc = 0.900
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-ER auc = 0.761
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-ER-LBD auc = 0.891
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test NR-PPAR-gamma auc = 0.890
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test SR-ARE auc = 0.847
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test SR-ATAD5 auc = 0.863
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test SR-HSE auc = 0.829
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test SR-MMP auc = 0.922
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2021 ==> test SR-p53 auc = 0.897
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2022 ==> test auc = 0.853
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-AR auc = 0.867
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-AR-LBD auc = 0.942
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-AhR auc = 0.900
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-Aromatase auc = 0.904
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-ER auc = 0.734
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-ER-LBD auc = 0.833
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test NR-PPAR-gamma auc = 0.779
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test SR-ARE auc = 0.847
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test SR-ATAD5 auc = 0.879
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test SR-HSE auc = 0.772
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test SR-MMP auc = 0.901
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2022 ==> test SR-p53 auc = 0.873
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2023 ==> test auc = 0.858
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-AR auc = 0.770
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-AR-LBD auc = 0.916
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-AhR auc = 0.878
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-Aromatase auc = 0.907
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-ER auc = 0.683
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-ER-LBD auc = 0.835
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test NR-PPAR-gamma auc = 0.931
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test SR-ARE auc = 0.841
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test SR-ATAD5 auc = 0.901
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test SR-HSE auc = 0.855
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test SR-MMP auc = 0.912
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2023 ==> test SR-p53 auc = 0.865
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2024 ==> test auc = 0.851
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-AR auc = 0.853
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-AR-LBD auc = 0.955
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-AhR auc = 0.872
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-Aromatase auc = 0.823
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-ER auc = 0.715
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-ER-LBD auc = 0.825
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test NR-PPAR-gamma auc = 0.790
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test SR-ARE auc = 0.855
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test SR-ATAD5 auc = 0.889
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test SR-HSE auc = 0.899
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test SR-MMP auc = 0.896
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2024 ==> test SR-p53 auc = 0.837
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2025 ==> test auc = 0.884
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-AR auc = 0.849
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-AR-LBD auc = 0.991
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-AhR auc = 0.875
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-Aromatase auc = 0.906
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-ER auc = 0.772
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-ER-LBD auc = 0.861
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test NR-PPAR-gamma auc = 0.901
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test SR-ARE auc = 0.841
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test SR-ATAD5 auc = 0.921
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test SR-HSE auc = 0.861
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test SR-MMP auc = 0.927
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2025 ==> test SR-p53 auc = 0.898
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2026 ==> test auc = 0.852
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-AR auc = 0.803
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-AR-LBD auc = 0.868
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-AhR auc = 0.900
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-Aromatase auc = 0.937
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-ER auc = 0.741
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-ER-LBD auc = 0.796
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test NR-PPAR-gamma auc = 0.819
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test SR-ARE auc = 0.868
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test SR-ATAD5 auc = 0.865
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test SR-HSE auc = 0.860
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test SR-MMP auc = 0.915
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2026 ==> test SR-p53 auc = 0.857
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2027 ==> test auc = 0.829
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-AR auc = 0.764
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-AR-LBD auc = 0.837
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-AhR auc = 0.903
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-Aromatase auc = 0.798
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-ER auc = 0.731
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-ER-LBD auc = 0.828
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test NR-PPAR-gamma auc = 0.860
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test SR-ARE auc = 0.829
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test SR-ATAD5 auc = 0.858
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test SR-HSE auc = 0.786
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test SR-MMP auc = 0.905
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2027 ==> test SR-p53 auc = 0.852
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2028 ==> test auc = 0.837
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-AR auc = 0.846
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-AR-LBD auc = 0.849
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-AhR auc = 0.915
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-Aromatase auc = 0.871
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-ER auc = 0.685
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-ER-LBD auc = 0.806
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test NR-PPAR-gamma auc = 0.839
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test SR-ARE auc = 0.846
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test SR-ATAD5 auc = 0.841
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test SR-HSE auc = 0.793
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test SR-MMP auc = 0.910
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2028 ==> test SR-p53 auc = 0.838
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2029 ==> test auc = 0.842
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-AR auc = 0.835
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-AR-LBD auc = 0.854
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-AhR auc = 0.883
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-Aromatase auc = 0.882
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-ER auc = 0.724
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-ER-LBD auc = 0.901
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test NR-PPAR-gamma auc = 0.821
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test SR-ARE auc = 0.775
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test SR-ATAD5 auc = 0.804
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test SR-HSE auc = 0.845
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test SR-MMP auc = 0.904
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2029 ==> test SR-p53 auc = 0.877
+[2024-03-26 20:45:10](cross_validate.py 63): INFO  Seed 2030 ==> test auc = 0.843
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-AR auc = 0.797
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-AR-LBD auc = 0.868
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-AhR auc = 0.909
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-Aromatase auc = 0.936
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-ER auc = 0.686
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-ER-LBD auc = 0.826
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test NR-PPAR-gamma auc = 0.896
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test SR-ARE auc = 0.840
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test SR-ATAD5 auc = 0.833
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test SR-HSE auc = 0.785
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test SR-MMP auc = 0.885
+[2024-03-26 20:45:10](cross_validate.py 66): INFO  Seed 2030 ==> test SR-p53 auc = 0.849
+[2024-03-26 20:45:10](cross_validate.py 71): INFO  Overall test auc = 0.853 ± 0.016
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-AR auc = 0.825 ± 0.037
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-AR-LBD auc = 0.903 ± 0.051
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-AhR auc = 0.896 ± 0.017
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-Aromatase auc = 0.886 ± 0.043
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-ER auc = 0.723 ± 0.030
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-ER-LBD auc = 0.840 ± 0.032
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test NR-PPAR-gamma auc = 0.853 ± 0.048
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test SR-ARE auc = 0.839 ± 0.023
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test SR-ATAD5 auc = 0.865 ± 0.033
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test SR-HSE auc = 0.828 ± 0.040
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test SR-MMP auc = 0.908 ± 0.012
+[2024-03-26 20:45:10](cross_validate.py 75): INFO  Overall test SR-p53 auc = 0.864 ± 0.021
