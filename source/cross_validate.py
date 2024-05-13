@@ -6,13 +6,10 @@ import numpy as np
 from copy import deepcopy
 #贝叶斯超参数优化
 from hyperopt import fmin, hp, tpe
-
 import torch
-
 from model import build_model
 from train import train, parse_args
 from utils import create_logger, get_task_names
-
 
 # ---------------------------------------
 # 10 folds cross validation
@@ -21,7 +18,6 @@ def cross_validate(cfg, logger):
     """k-fold cross-validation.
 
     """
-
     # Initialize relevant variables
     init_seed = cfg.SEED
     out_dir = cfg.OUTPUT_DIR
@@ -70,7 +66,6 @@ def cross_validate(cfg, logger):
                         f'{np.nanmean(all_scores[:, task_num]):.3f} ± {np.nanstd(all_scores[:, task_num]):.3f}')
 
     return mean_score, std_score
-
 
 # ---------------------------------------
 # Hyperparameters optimization
@@ -193,88 +188,6 @@ def hyperopt(cfg, logger):
     with open(cfg_save_path, 'w') as f:
         yaml.dump(best_result['hyperparams'], f, indent=4, sort_keys=True)
 
-
-def hyperopt_resume(cfg, logger):
-    """Runs hyperparameter optimization on a HiGNN model.
-
-    """
-    # Save path for best hyperparameters
-    yaml_name = "best_{}_{}.yaml".format(cfg.DATA.DATASET, cfg.TAG)
-    cfg_save_path = os.path.join(cfg.OUTPUT_DIR, yaml_name)
-    # Run
-    results = []
-
-    # Define hyperparameter optimization
-    #objiective 目标函数
-    def objective(hyperparams):
-        # Convert hyperparams from float to int when necessary
-        for key in INT_KEYS:
-            hyperparams[key] = int(hyperparams[key])
-
-        # Update args with hyperparams
-        hyper_cfg = deepcopy(cfg)
-        if hyper_cfg.OUTPUT_DIR is not None:
-            folder_name = f'round_{hyper_cfg.HYPER_COUNT}'
-            hyper_cfg.defrost()
-            hyper_cfg.OUTPUT_DIR = os.path.join(hyper_cfg.OUTPUT_DIR, folder_name)
-            hyper_cfg.freeze()
-        #if cfg.TRAIN.RESUME is None:
-        hyper_cfg.defrost()
-        opts = list()
-        for key, value in hyperparams.items():
-            opts.append(key)
-            opts.append(value)
-        hyper_cfg.merge_from_list(opts)
-        hyper_cfg.freeze()
-
-        # Record hyperparameters
-        cfg.defrost()
-        cfg.HYPER_COUNT += 1
-        cfg.freeze()
-        logger.info(f'round_{hyper_cfg.HYPER_COUNT - 1}')
-        logger.info(hyperparams)
-
-        # Cross validate
-        mean_score, std_score = cross_validate(hyper_cfg, logger)
-
-        # Record results
-        temp_model = build_model(hyper_cfg)
-        num_params = sum(param.numel() for param in temp_model.parameters() if param.requires_grad)
-        logger.info(f'num params: {num_params:,}')
-        logger.info(f'{mean_score} ± {std_score} {hyper_cfg.DATA.METRIC}')
-
-        results.append({
-            'mean_score': mean_score,
-            'std_score': std_score,
-            'hyperparams': hyperparams,
-            'num_params': num_params
-        })
-
-        # Deal with nan
-        if np.isnan(mean_score):
-            if hyper_cfg.DATA.TASK_TYPE == 'classification':
-                mean_score = 0
-            else:
-                raise ValueError('Can\'t handle nan score for non-classification dataset.')
-
-        return (-1 if hyper_cfg.DATA.TASK_TYPE == 'classification' else 1) * mean_score
-
-    fmin(objective, SPACE, algo=tpe.suggest, max_evals=cfg.NUM_ITERS, verbose=False)
-
-    # Report best result
-    results = [result for result in results if not np.isnan(result['mean_score'])]
-    best_result = \
-        min(results, key=lambda result: (-1 if cfg.DATA.TASK_TYPE == 'classification' else 1) * result['mean_score'])
-    logger.info('best result')
-    logger.info(best_result['hyperparams'])
-    logger.info(f'num params: {best_result["num_params"]:,}')
-    logger.info(f'{best_result["mean_score"]} ± {best_result["std_score"]} {cfg.DATA.METRIC}')
-
-    # Save best hyperparameter settings as yaml config file
-    with open(cfg_save_path, 'w') as f:
-        yaml.dump(best_result['hyperparams'], f, indent=4, sort_keys=True)
-
-
 if __name__ == '__main__':
     _, cfg = parse_args()
 
@@ -285,25 +198,6 @@ if __name__ == '__main__':
         logger.info('GPU mode...')
     else:
         logger.info('CPU mode...')
-
-    # if cfg.TRAIN.RESUME is not None:
-    #     logger.info(cfg.dump())
-    #     cross_validate(cfg, logger)
-    #     if cfg.HYPER:
-    #         if cfg.MODEL.F_ATT:
-    #             SPACE.update({'MODEL.R': hp.choice('R', [1, 2, 4])})
-    #             INT_KEYS.append('MODEL.R')
-    #             # Add LOSS.ALPHA and LOSS.TEMPERATURE of the contrastive block
-    #         if cfg.MODEL.BRICS and cfg.LOSS.CL_LOSS:
-    #             SPACE.update({'LOSS.ALPHA': hp.choice('alpha', [0.1, 0.15, 0.2, 0.25])})
-    #             SPACE.update({'LOSS.TEMPERATURE': hp.choice('temperature', [0.07, 0.1, 0.2])})
-    #             # Delete the parameters you don’t want to optimize
-    #         if cfg.HYPER_REMOVE is not None:
-    #             for i in cfg.HYPER_REMOVE:
-    #                 del SPACE[i]
-    #             INT_KEYS = [i for i in INT_KEYS if i not in cfg.HYPER_REMOVE]
-    #         hyperopt(cfg, logger)
-
     # training
     if cfg.HYPER:
         # Add MODEL.R of the feture attention module
@@ -325,4 +219,3 @@ if __name__ == '__main__':
     else:
         logger.info(cfg.dump())
         cross_validate(cfg, logger)
-
