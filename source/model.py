@@ -53,6 +53,30 @@ class DotProductAttention(nn.Module):
         return output
 
 # ---------------------------------------
+# BiDirectionalAttention
+# ---------------------------------------
+class BiDirectionalAttention(nn.Module):
+    def __init__(self, channels):
+        super(BiDirectionalAttention, self).__init__()
+        self.channels = channels
+        self.query_linear = nn.Linear(channels, channels)
+        self.key_linear = nn.Linear(channels, channels)
+    def forward(self, query, key):
+        # 计算查询和键
+        # 计算查询在键上的注意力权重
+        query = F.relu(self.query_linear(query))
+        key = F.relu(self.key_linear(key))
+        scores_query_to_key = torch.matmul(query, key.transpose(-2, -1)) / (self.channels ** 0.5)
+        attn_weights_query_to_key = F.softmax(scores_query_to_key, dim=-1)
+        output_query_to_key = torch.matmul(attn_weights_query_to_key, key)
+
+        # 计算键在查询上的注意力权重
+        scores_key_to_query = torch.matmul(key, query.transpose(-2, -1)) / (self.channels ** 0.5)
+        attn_weights_key_to_query = F.softmax(scores_key_to_query, dim=-1)
+        output_key_to_query = torch.matmul(attn_weights_key_to_query, query)
+        return output_query_to_key, output_key_to_query
+
+# ---------------------------------------
 # Neural tensor networks conv
 # ---------------------------------------
 class NTNConv(MessagePassing):
@@ -307,7 +331,4 @@ class HiGNN(torch.nn.Module):
             assert self.cl is False
             out = F.dropout(mol_vec, p=self.dropout, training=self.training)
             return self.out(out)
-
-
-
 
