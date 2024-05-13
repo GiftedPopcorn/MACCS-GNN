@@ -21,7 +21,6 @@ from utils import get_task_names
 
 RDLogger.DisableLog('rdApp.*')
 
-
 # -------------------------------------
 # attentive_fp fashion featurization
 # -------------------------------------
@@ -30,15 +29,16 @@ def onehot_encoding(x, allowable_set):
         raise Exception("input {0} not in allowable set{1}:".format(
             x, allowable_set))
     return [x == s for s in allowable_set]
-
-
+    
 def onehot_encoding_unk(x, allowable_set):
     """Maps inputs not in the allowable set to the last element."""
     if x not in allowable_set:
         x = allowable_set[-1]
     return [x == s for s in allowable_set]
-
-
+    
+# -------------------------------------
+# Atomic feature initialization
+# -------------------------------------
 def atom_attr(mol, explicit_H=False, use_chirality=True, pharmaco=True, scaffold=True):
     if pharmaco:
         mol = tag_pharmacophore(mol)
@@ -78,8 +78,9 @@ def atom_attr(mol, explicit_H=False, use_chirality=True, pharmaco=True, scaffold
         feat.append(results)
 
     return np.array(feat)
-
-
+# -------------------------------------
+# Bond feature initialization
+# -------------------------------------
 def bond_attr(mol, use_chirality=True):
     feat = []
     index = []
@@ -105,7 +106,9 @@ def bond_attr(mol, use_chirality=True):
 
     return np.array(index), np.array(feat)
 
-
+# -------------------------------------
+# Bond break feature initialization
+# -------------------------------------
 def bond_break(mol):
     results = np.array(sorted(list(FindBRICSBonds(mol))), dtype=int)
 
@@ -128,7 +131,6 @@ def bond_break(mol):
 
     return fra_edge_index, fra_edge_attr, cluster_idx
 
-
 # ---------------------------------------------
 # Scaffold and pharmacophore information utils
 # ---------------------------------------------
@@ -141,7 +143,6 @@ fun_smarts = {
     'Halogen': '[F,Cl,Br,I]'
 }
 FunQuery = dict([(pharmaco, Chem.MolFromSmarts(s)) for (pharmaco, s) in fun_smarts.items()])
-
 
 def tag_pharmacophore(mol):
     for fungrp, qmol in FunQuery.items():
@@ -164,7 +165,9 @@ def tag_scaffold(mol):
         atom.SetProp('Scaffold', tag)
     return mol
 
-
+# -------------------------------------
+# Molecular fingerprint of MACCS feature initialization
+# -------------------------------------
 # MACCS分子指纹
 def maccs_attr(mol):
     # 生成 MACCS 指纹
@@ -177,7 +180,6 @@ def maccs_attr(mol):
     num_fp = [int(char) for char in array_char_fp]
 
     return np.array(num_fp)
-
 
 # ---------------------------------
 # data and dataset
@@ -194,7 +196,6 @@ class MolData(Data):
             return int(self.cluster_index.max()) + 1
         else:
             return super().__inc__(key, value, *args, **kwargs)
-
 
 class MolDataset(InMemoryDataset):
 
@@ -244,7 +245,6 @@ class MolDataset(InMemoryDataset):
 
             mol = Chem.MolFromSmiles(smi)
             data = self.mol2graph(mol)
-
             if data is not None:
                 label = target[i]
                 label[np.isnan(label)] = 666
@@ -280,10 +280,7 @@ class MolDataset(InMemoryDataset):
             smiles=smiles,
             y=None
         )
-
         return data
-
-
 
 # ---------------------------------
 # load dataset
@@ -336,7 +333,6 @@ def load_dataset_random(path, dataset, seed, task_type, tasks=None, logger=None)
     torch.save([trn, val, test], save_path)
     return load_dataset_random(path, dataset, seed, task_type, tasks)
 
-
 # anti-noise experiments for hiv dataset
 def load_dataset_noise(path, dataset, seed, task_type, tasks, rate, logger=None):
     save_path = path + 'processed/train_valid_test_{}_seed_{}_noise_{}.ckpt'.format(dataset, seed, int(100 * rate))
@@ -378,7 +374,6 @@ def load_dataset_noise(path, dataset, seed, task_type, tasks, rate, logger=None)
     torch.save([trn, val, test], save_path)
     return load_dataset_noise(path, dataset, seed, task_type, tasks, rate)
 
-
 def load_dataset_scaffold(path, dataset, seed, task_type, tasks=None, logger=None):
     save_path = path + 'processed/train_valid_test_{}_seed_{}_scaffold.ckpt'.format(dataset, seed)
     if os.path.isfile(save_path):
@@ -398,7 +393,6 @@ def load_dataset_scaffold(path, dataset, seed, task_type, tasks=None, logger=Non
     torch.save([trn, val, test], save_path)
     return load_dataset_scaffold(path, dataset, seed, task_type, tasks)
 
-
 # ---------------------------------------------
 # Scaffold utils, copy from chemprop.
 # ---------------------------------------------
@@ -413,7 +407,6 @@ def generate_scaffold(mol, include_chirality=False):
     scaffold = MurckoScaffold.MurckoScaffoldSmiles(mol=mol, includeChirality=include_chirality)
 
     return scaffold
-
 
 def scaffold_to_smiles(smiles, use_indices=False):
     """
@@ -432,7 +425,6 @@ def scaffold_to_smiles(smiles, use_indices=False):
             scaffolds[scaffold].add(smi)
 
     return scaffolds
-
 
 def scaffold_split(pyg_dataset, task_type, tasks, sizes=(0.8, 0.1, 0.1), balanced=True, seed=1, logger=None):
     assert sum(sizes) == 1
@@ -504,7 +496,6 @@ def scaffold_split(pyg_dataset, task_type, tasks, sizes=(0.8, 0.1, 0.1), balance
         weights = None
 
     return train_ids, val_ids, test_ids, weights
-
 
 # ---------------------------------
 # build dataset and dataloader
