@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 import os
 import csv
 import time
@@ -7,10 +7,8 @@ import random
 import logging
 import numpy as np
 from termcolor import colored
-
 import torch
 from torch.optim.lr_scheduler import _LRScheduler
-
 from sklearn.metrics import auc, mean_absolute_error, mean_squared_error, precision_recall_curve, roc_auc_score
 
 
