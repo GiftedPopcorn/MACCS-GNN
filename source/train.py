@@ -298,6 +298,7 @@ def train(cfg, logger):
         #5 save best model
         if epoch < 5:
             best_set_scores.append(val_score)
+            best_score, best_epoch = val_score, epoch
             save_best_checkpoint_i(cfg, epoch, model, best_score, best_epoch, optimizer, lr_scheduler, logger, epoch)
             early_stop_cnt = 0
         else:
